@@ -23,5 +23,5 @@ Bring Manus-style planning and TDD execution to your OpenClaw agents.
 
 ## 🎯 Usage
 Your OpenClaw agent is now supercharged. To use the dynamic save path feature, simply prompt:
-> "Let's implement <task>, using .superpower/ for logs."
+> "Let's implement <task>, using .spf/ for logs."
 

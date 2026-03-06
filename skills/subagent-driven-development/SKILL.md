@@ -249,7 +249,7 @@ Done!
   `🚀 **SUPERPOWER ACTIVE:** subagent-driven-development`
 
 When the Code Quality Reviewer approves a task, you MUST do the following before moving on:
-1. Open the `progress.md` file in the **active memory directory** (defaulting to `.superpower-with-files/`).
+1. Open the `progress.md` file in the **active memory directory** (defaulting to `.spf/`).
 2. Append the test output directly to the `## Test Results` table.
 3. Update the `Files created/modified` bullet points under the active phase.
 
