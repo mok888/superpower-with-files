@@ -106,7 +106,9 @@ Before you execute any code, you MUST load your context.
    - `active_tdd_plan.md` to get your exact minute-by-minute execution steps.
 
 ### Execution Checkpoint Rule
-When you finish a batch of 3 tasks, *before* you pause to say "Ready for feedback", you MUST write the complete batch execution log into `progress.md` in the target directory used above.
+When you finish a batch of 3 tasks, *before* you pause to say "Ready for feedback", you MUST:
+1. **Sync Git Logs**: Run `git log --oneline --since="1 hour ago" >> [active-memory-dir]/progress.md` (ensuring no duplicates).
+2. **Batch Summary**: Write a concise summary of the batch execution into `progress.md`.
 
 ### Automated Timestamping
 - Every time you modify a memory file (`task_plan.md`, `active_tdd_plan.md`, `findings.md`, `progress.md`), you MUST append a horizontal rule and a timestamp at the very bottom:

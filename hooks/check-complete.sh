@@ -43,6 +43,13 @@ if [ "$COMPLETE" -eq "$TOTAL" ] && [ "$TOTAL" -gt 0 ]; then
     echo "[spf] ALL PHASES COMPLETE ($COMPLETE/$TOTAL)"
 else
     echo "[spf] Task in progress ($COMPLETE/$TOTAL phases complete)"
+    
+    # Git Pulse Check
+    if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+        RECENT_COMMITS=$(git log --oneline --since="1 hour ago" | wc -l)
+        echo "[spf] Git Pulse: $RECENT_COMMITS commit(s) in the last hour."
+    fi
+
     if [ "$IN_PROGRESS" -gt 0 ]; then
         echo "[spf] $IN_PROGRESS phase(s) still in progress."
     fi
