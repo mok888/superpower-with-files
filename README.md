@@ -22,12 +22,12 @@ This repository is **plug-and-play**. You do not need to build or compile anythi
    Point your AI agent (Claude, Cursor, etc.) at the `/skills` folder in this repo.
 
 3. **Phase 1: Planning**:
-   Ask for a plan using the shorthand `/plan` (or `/writing-plans`):
+   Ask for a plan using the shorthand `/swf-plan` (or `/writing-plans`):
    > "Create a plan for the <feature> and save it in .ai/"
    *(The agent will write the plan and stop.)*
 
 4. **Phase 2: Execution**:
-   Once approved, trigger the implementation using `/execute` (or `/executing-plans`):
+   Once approved, trigger the implementation using `/swf-execute` (or `/executing-plans`):
    > "Execute the plan."
    *(The agent will now implement the code task-by-task.)*
 
@@ -38,6 +38,7 @@ This repository is **plug-and-play**. You do not need to build or compile anythi
 | Platform | Setup Method | Documentation |
 | :--- | :--- | :--- |
 | **Claude Code** | Native Plugin | [manifest.json](file:///.claude-plugin/plugin.json) |
+
 | **Cursor** | Context Skills | [hooks.json](file:///.cursor/hooks.json) |
 | **OpenCode** | Config Symlink | [INSTALL.md](file:///.opencode/INSTALL.md) |
 | **OpenClaw** | Local/Global Skills | [INSTALL.md](file:///.openclaw/INSTALL.md) |
