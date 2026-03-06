@@ -93,7 +93,8 @@ After all tasks complete and verified:
 
 ### STRICT EXECUTION ONLY
 1. **Execution Only:** Your sole responsibility is to carry out the steps defined in the `active_tdd_plan.md`.
-2. **No Plan Modification:** You MUST NOT modify the plan itself. If you find the plan is flawed or blocked, you must stop and report the issue rather than attempting to "fix" the plan while executing.
+2. **No Plan Modification:** You MUST NOT modify the plan itself.
+3. **Optional Steps**: You MAY skip any step marked as `(optional)` if the previous step's output or the current state clearly confirms success (e.g., skipping a manual `ls` if the `mkdir` command succeeded without error).
 
 ### Pre-Flight Context Checklist
 Before you execute any code, you MUST load your context. 

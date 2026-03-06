@@ -134,6 +134,17 @@ After saving the plan, offer execution choice:
   `---`
   `*Last Updated: YYYY-MM-DD HH:MM UTC*`
 
+### SMART PLANNING RULES
+1. **Adaptive Granularity**: Add `complexity: simple | medium | complex` to the plan header.
+   - `simple`: Combine boilerplate and logic into fewer, larger tasks.
+   - `complex`: High granularity, minute-by-minute steps.
+2. **Smarter Test Detection**: Before drafting the test section, you MUST auto-detect the test runner:
+   - `Cargo.toml` -> `cargo test`
+   - `pyproject.toml` / `pytest` in `requirements.txt` -> `pytest`
+   - `package.json` -> `npm test`
+   - No detection -> Ask the user.
+3. **Optional Markers**: You may mark routine verification steps as `(optional)` (e.g., `Step 5: Verify structure (optional)`).
+
 ### Naming & Location Precedence
 1. **User Override [HIGHEST]:** If the user specifies any path (e.g., "Save to `projects/tgnews`"), you MUST honor that path immediately.
 2. **SPF Default [SECONDARY]:** If no path is specified by the user, save to:
