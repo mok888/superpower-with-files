@@ -3,10 +3,11 @@
 # Always exits 0 — uses stdout for status reporting
 # Used by Stop hook to report task completion status
 
-PLAN_FILE="${1:-task_plan.md}"
+MEM_DIR=".superpower-with-files"
+PLAN_FILE="${1:-$MEM_DIR/task_plan.md}"
 
 if [ ! -f "$PLAN_FILE" ]; then
-    echo "[planning-with-files] No task_plan.md found — no active planning session."
+    echo "[planning-with-files] No task_plan.md found (checked $PLAN_FILE) — no active planning session."
     exit 0
 fi
 

@@ -9,9 +9,14 @@ DATE=$(date +%Y-%m-%d)
 
 echo "Initializing planning files for: $PROJECT_NAME"
 
+MEM_DIR=".superpower-with-files"
+mkdir -p "$MEM_DIR"
+
+echo "Initializing planning files in: $MEM_DIR/ for $PROJECT_NAME"
+
 # Create task_plan.md if it doesn't exist
-if [ ! -f "task_plan.md" ]; then
-    cat > task_plan.md << 'EOF'
+if [ ! -f "$MEM_DIR/task_plan.md" ]; then
+    cat > "$MEM_DIR/task_plan.md" << 'EOF'
 # Task Plan: [Brief Description]
 
 ## Goal
@@ -56,14 +61,14 @@ Phase 1
 | Error | Resolution |
 |-------|------------|
 EOF
-    echo "Created task_plan.md"
+    echo "Created $MEM_DIR/task_plan.md"
 else
-    echo "task_plan.md already exists, skipping"
+    echo "$MEM_DIR/task_plan.md already exists, skipping"
 fi
 
 # Create findings.md if it doesn't exist
-if [ ! -f "findings.md" ]; then
-    cat > findings.md << 'EOF'
+if [ ! -f "$MEM_DIR/findings.md" ]; then
+    cat > "$MEM_DIR/findings.md" << 'EOF'
 # Findings & Decisions
 
 ## Requirements
@@ -83,14 +88,14 @@ if [ ! -f "findings.md" ]; then
 ## Resources
 -
 EOF
-    echo "Created findings.md"
+    echo "Created $MEM_DIR/findings.md"
 else
-    echo "findings.md already exists, skipping"
+    echo "$MEM_DIR/findings.md already exists, skipping"
 fi
 
 # Create progress.md if it doesn't exist
-if [ ! -f "progress.md" ]; then
-    cat > progress.md << EOF
+if [ ! -f "$MEM_DIR/progress.md" ]; then
+    cat > "$MEM_DIR/progress.md" << EOF
 # Progress Log
 
 ## Session: $DATE
@@ -110,9 +115,9 @@ if [ ! -f "progress.md" ]; then
 | Error | Resolution |
 |-------|------------|
 EOF
-    echo "Created progress.md"
+    echo "Created $MEM_DIR/progress.md"
 else
-    echo "progress.md already exists, skipping"
+    echo "$MEM_DIR/progress.md already exists, skipping"
 fi
 
 echo ""
