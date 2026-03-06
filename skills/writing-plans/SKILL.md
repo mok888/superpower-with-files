@@ -118,9 +118,13 @@ After saving the plan, offer execution choice:
 ## Superplanner Memory Integration (Unified Extension)
 **CRITICAL THEMATIC RULE:** You are working inside the `superpower-with-files` unified framework. 
 
-### Dynamic Naming & Location
+### STRICT PLANNING ONLY
+1. **No Execution:** While using this skill, you MUST NOT execute any code, run any tests, or perform any implementation tasks.
+2. **Phase Completion:** Your sole responsibility is to generate the `active_tdd_plan.md`, ensure it is saved correctly, and check off the corresponding phase in `task_plan.md`.
+3. **Implicit Stop:** Once the plan is saved and the phase is checked off, you MUST stop and wait for the user to trigger the execution phase.
+
+### Naming & Location Override
 1. **Honor User Requests:** If the user specifies a directory for plans in their prompt (e.g., "Save to `my-plans/`"), you MUST honor that path.
 2. **Default Location:** If no directory is specified, strictly save the active TDD plan to:
    **`/.superpower-with-files/active_tdd_plan.md`**
 
-After you have written the plan, you MUST open the corresponding **`task_plan.md`** (in the same directory) and check off exactly whatever Phase was just completed in that high-level checklist.

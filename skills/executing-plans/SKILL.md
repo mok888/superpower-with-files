@@ -86,6 +86,10 @@ After all tasks complete and verified:
 ## Superplanner Memory Integration (Unified Extension)
 **CRITICAL THEMATIC RULE:** You are working inside the `superpower-with-files` unified framework.
 
+### STRICT EXECUTION ONLY
+1. **Execution Only:** Your sole responsibility is to carry out the steps defined in the `active_tdd_plan.md`.
+2. **No Plan Modification:** You MUST NOT modify the plan itself. If you find the plan is flawed or blocked, you must stop and report the issue rather than attempting to "fix" the plan while executing.
+
 ### Pre-Flight Context Checklist
 Before you execute any code, you MUST load your context. 
 1. **Look for context** in the user's requested directory (if specified) OR the default `.superpower-with-files/` directory.
@@ -97,3 +101,4 @@ Before you execute any code, you MUST load your context.
 
 ### Execution Checkpoint Rule
 When you finish a batch of 3 tasks, *before* you pause to say "Ready for feedback", you MUST write the complete batch execution log into `progress.md` in the target directory used above.
+
