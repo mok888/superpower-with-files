@@ -94,7 +94,13 @@ After all tasks complete and verified:
 ### STRICT EXECUTION ONLY
 1. **Execution Only:** Your sole responsibility is to carry out the steps defined in the `active_tdd_plan.md`.
 2. **No Plan Modification:** You MUST NOT modify the plan itself.
-3. **Optional Steps**: You MAY skip any step marked as `(optional)` if the previous step's output or the current state clearly confirms success (e.g., skipping a manual `ls` if the `mkdir` command succeeded without error).
+3. **Optional Steps**: You MAY skip any step marked as `(optional)` if the state is clear.
+
+### PARALLEL EXECUTION PROTOCOL
+4. **Parallel Spawning**: If Task A and Task B are marked as **`Parallel with`** each other:
+   - You MUST attempt to spawn a **sub-agent** (if the platform provides a `subagent` or `browser_subagent` tool) to handle one of the tasks.
+   - If no sub-agent tool is available, you MUST execute them sequentially but acknowledge the parallel potential in `progress.md`.
+   - Before spawning, ensure common dependencies (Tasks they both depend on) are 100% complete.
 
 ### Pre-Flight Context Checklist
 Before you execute any code, you MUST load your context. 
