@@ -2,12 +2,8 @@
 
 This repository contains the unified workflow combining the persistent memory format of `planning-with-files` with the parallel, TDD execution framework of `superpowers`.
 
-## Architecture Details
-This repository uses a Git Submodule + Overlay Compiler architecture to ensure you can continually pull upstream changes without breaking the integration.
-
-1. **`vendor/`**: Contains the raw, read-only submodules for both source projects.
-2. **`overlays/`**: Contains our custom memory-injected Markdown instructions.
-3. **`skills/`**: The auto-generated, compiled directory that you actually point your IDE toward.
+## Features
+This workflow gives you access to the advanced planning and execution capabilities of `superpowers`, but forces all the memory logs (task plans, test results, active TDD execution steps) into a clean, unified location so your project root doesn't get cluttered.
 
 ## How to Use (End Users)
 
