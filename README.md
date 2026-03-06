@@ -22,12 +22,12 @@ This repository is **plug-and-play**. You do not need to build or compile anythi
    Point your AI agent (Claude, Cursor, etc.) at the `/skills` folder in this repo.
 
 3. **Phase 1: Planning**:
-   Start by asking for a plan:
+   Ask for a plan using the shorthand `/plan` (or `/writing-plans`):
    > "Create a plan for the <feature> and save it in .ai/"
    *(The agent will write the plan and stop.)*
 
 4. **Phase 2: Execution**:
-   Once you approve the plan, trigger the execution:
+   Once approved, trigger the implementation using `/execute` (or `/executing-plans`):
    > "Execute the plan."
    *(The agent will now implement the code task-by-task.)*
 
