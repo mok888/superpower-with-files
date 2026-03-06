@@ -5,7 +5,14 @@
 set -e
 
 PROJECT_NAME="${1:-project}"
-TARGET_DIR="${2:-.superpower-with-files}"
+if [ -n "$2" ]; then
+    # If a target directory is provided, we assume it's a parent folder (like ~/projects)
+    # and create a subfolder for the project.
+    TARGET_DIR="$2/$PROJECT_NAME"
+else
+    # Default to the branded SPF folder in the current directory
+    TARGET_DIR=".superpower-with-files"
+fi
 DATE=$(date +%Y-%m-%d)
 
 echo "Initializing SPF planning files for: $PROJECT_NAME in $TARGET_DIR/"
