@@ -303,7 +303,7 @@ From debugging sessions:
   `🚀 **SUPERPOWER ACTIVE:** systematic-debugging`
 
 ### Error Tracking Rule
-Any and every time a root-cause hypothesis fails, you MUST immediately log the failed attempt into the `## Error Log` table in the `progress.md` file (located in the **active memory directory**, defaulting to `.spf/`). 
+Any and every time a root-cause hypothesis fails, you MUST immediately log the failed attempt into the `## Error Log` table in the `progress.md` file (located in the **active memory directory**, defaulting to `.superpower-with-files/`). 
 
 ### Automated Timestamping
 - Every time you modify a memory file (`task_plan.md`, `active_tdd_plan.md`, `findings.md`, `progress.md`), you MUST append a horizontal rule and a timestamp at the very bottom:

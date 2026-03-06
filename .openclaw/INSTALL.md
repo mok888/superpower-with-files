@@ -30,7 +30,7 @@ SPF uses a strict two-phase workflow with shorthand commands:
 2. **Execution**: Use `/spf-execute`
    > "Execute the plan"
 
-*(Note: You can also use `.spf/` as your default log directory.)*
+*(Note: You can also use `.superpower-with-files/` as your default log directory.)*
 
 ---
 *Last Updated: 2026-03-06 04:16 UTC*

@@ -48,7 +48,7 @@ This repository is **plug-and-play**. You do not need to build or compile anythi
 
 ## 📂 Architecture: The Unified Memory Path
 
-By default, everything is saved to `<project-root>/.spf/`. You can customize this path by simply **instructing the agent in your prompt**.
+By default, everything is saved to `<project-root>/.superpower-with-files/`. You can customize this path by simply **instructing the agent in your prompt**.
 
 > [!IMPORTANT]
 > **Strict Phase Separation**: The workflow is split into two distinct modes: **Planning** (thinking/designing) and **Execution** (doing/writing). The agent will not touch code until you explicitly give the "Execute" command.

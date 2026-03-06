@@ -136,4 +136,4 @@ After saving the plan, offer execution choice:
 ### Naming & Location Override
 1. **Honor User Requests:** If the user specifies a directory for plans in their prompt (e.g., "Save to `my-plans/`"), you MUST honor that path.
 2. **Default Location:** If no directory is specified, strictly save the active TDD plan to:
-   **`.spf/active_tdd_plan.md`**
+   **`.superpower-with-files/active_tdd_plan.md`**

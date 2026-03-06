@@ -96,7 +96,7 @@ After all tasks complete and verified:
 
 ### Pre-Flight Context Checklist
 Before you execute any code, you MUST load your context. 
-1. **Look for context** in the user's requested directory (if specified) OR the default `.spf/` directory.
+1. **Look for context** in the user's requested directory (if specified) OR the default `.superpower-with-files/` directory.
 2. **Read the following files** from that directory:
    - `task_plan.md` to understand the high-level goal and active Phase.
    - `findings.md` to understand any architectural constraints.
