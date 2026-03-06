@@ -21,6 +21,18 @@ Integrate the unified SPF (SuperPower with Files) workflow into your Gemini CLI 
    gemini skills list
    ```
 
+## 🚀 Usage
+
+SPF uses a strict two-phase workflow with shorthand commands:
+
+1. **Planning**: Use `/spf-plan`
+   > "Create a plan for <task> and save it in .ai/"
+2. **Execution**: Use `/spf-execute`
+   > "Execute the plan"
+
+---
+*Last Updated: 2026-03-06 04:16 UTC*
+
 ---
 
 ## 🚀 Usage

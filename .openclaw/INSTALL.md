@@ -22,6 +22,16 @@ Bring Manus-style planning and TDD execution to your OpenClaw agents.
    ```
 
 ## 🎯 Usage
-Your OpenClaw agent is now supercharged. To use the dynamic save path feature, simply prompt:
-> "Let's implement <task>, using .spf/ for logs."
+
+SPF uses a strict two-phase workflow with shorthand commands:
+
+1. **Planning**: Use `/spf-plan`
+   > "Create a plan for <task> and save it in .ai/"
+2. **Execution**: Use `/spf-execute`
+   > "Execute the plan"
+
+*(Note: You can also use `.spf/` as your default log directory.)*
+
+---
+*Last Updated: 2026-03-06 04:16 UTC*
 

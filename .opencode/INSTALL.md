@@ -17,9 +17,22 @@ Supercharge your OpenCode agent with unified persistent memory and TDD superpowe
    ```
 
 3. **Verify**:
-   Restart your OpenCode session. Your agent will now automatically detect the new skills.
+   ```bash
+   opencode status
+   ```
+
+## 🚀 Usage
+
+SPF uses a strict two-phase workflow with shorthand commands:
+
+1. **Planning**: Use `/spf-plan`
+   > "Create a plan for <task> and save it in .ai/"
+2. **Execution**: Use `/spf-execute`
+   > "Execute the plan"
+
+---
+*Last Updated: 2026-03-06 04:16 UTC*
 
 ## 🎯 Usage
 Once installed, your agent will follow the unified workflow. To keep your root directory clean, you can start a task with:
 > "Generate a plan for <feature> and save to .ai/"
-
