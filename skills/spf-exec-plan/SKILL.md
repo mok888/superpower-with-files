@@ -110,8 +110,16 @@ Before you execute any code, you MUST load your context.
 
 ### Execution Checkpoint Rule
 When you finish a batch of 3 tasks, *before* you pause to say "Ready for feedback", you MUST:
-1. **Sync Git Logs**: Run `git log --oneline --since="1 hour ago" >> [active-memory-dir]/progress.md` (ensuring no duplicates).
-2. **Batch Summary**: Write a concise summary of the batch execution into `progress.md`.
+1. **Context Hygiene**: 
+   - Summarize the batch into a single concise paragraph in `progress.md`.
+   - Clear any temporary discovery findings from `findings.md` that are no longer relevant.
+   - For your next prompt, keep only the relevant `task_plan.md` phase and the next 3 tasks from `active_tdd_plan.md` in your immediate thought block.
+2. **Session Handoff**: 
+   - If you are stopping or pausing for more than a few minutes, CREATE or UPDATE:
+     **`.superpower-with-files/handoff.md`**
+   - Include: Latest timestamp, Completed tasks, Current task status, Any blockers, and "Next Action" details.
+3. **Implicit Stop:** Stop and prompt the user:
+   > "Batch complete. Progress saved and context compacted. Session handoff updated at `handoff.md`. Ready to continue?"
 
 ### Automated Timestamping
 - Every time you modify a memory file (`task_plan.md`, `active_tdd_plan.md`, `findings.md`, `progress.md`), you MUST append a horizontal rule and a timestamp at the very bottom:
