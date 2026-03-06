@@ -1,0 +1,14 @@
+# Ignored Compiled Directories
+# The build_unified.sh script dynamically generates these from the /vendor submodules.
+# We do not track them in Git to prevent merge conflicts with upstream.
+skills/
+hooks/
+templates/
+
+# Ignore the AI memory directory
+.superpower-with-files/
+
+# Standard Ignores
+.DS_Store
+node_modules/
+*.log
