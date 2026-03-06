@@ -42,7 +42,7 @@ This repository is **plug-and-play**. You do not need to build or compile anythi
 | **OpenCode** | Config Symlink | [INSTALL.md](file:///.opencode/INSTALL.md) |
 | **OpenClaw** | Local/Global Skills | [INSTALL.md](file:///.openclaw/INSTALL.md) |
 | **Codex** | Skills Discovery | [INSTALL.md](file:///.codex/INSTALL.md) |
-| **Gemini CLI** | Skill Linking | `gemini skills link ./skills` |
+| **Gemini CLI** | Skill Linking | [INSTALL.md](file:///.gemini-cli/INSTALL.md) |
 
 ---
 
