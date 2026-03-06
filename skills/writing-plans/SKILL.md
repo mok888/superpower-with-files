@@ -121,7 +121,8 @@ After saving the plan, offer execution choice:
 ### STRICT PLANNING ONLY
 1. **No Execution:** While using this skill, you MUST NOT execute any code, run any tests, or perform any implementation tasks.
 2. **Phase Completion:** Your sole responsibility is to generate the `active_tdd_plan.md`, ensure it is saved correctly, and check off the corresponding phase in `task_plan.md`.
-3. **Implicit Stop:** Once the plan is saved and the phase is checked off, you MUST stop and wait for the user to trigger the execution phase.
+3. **Implicit Stop & Handoff Prompt:** Once the plan is saved and the phase is checked off, you MUST stop and prompt the user exactly like this:
+   > "Planning phase complete. The plan has been saved to [path]. Please review and approve. To proceed with implementation, use the execution command: **'Execute the plan.'**"
 
 ### Naming & Location Override
 1. **Honor User Requests:** If the user specifies a directory for plans in their prompt (e.g., "Save to `my-plans/`"), you MUST honor that path.
