@@ -128,6 +128,11 @@ After saving the plan, offer execution choice:
 3. **Implicit Stop & Handoff Prompt:** Once the plan is saved and the phase is checked off, you MUST stop and prompt the user exactly like this:
    > "Planning phase complete. The plan has been saved to [path]. Please review and approve. To proceed with implementation, use the execution command: **'Execute the plan.'**"
 
+### Automated Timestamping
+- Every time you modify a memory file (`task_plan.md`, `active_tdd_plan.md`, `findings.md`, `progress.md`), you MUST append a horizontal rule and a timestamp at the very bottom:
+  `---`
+  `*Last Updated: YYYY-MM-DD HH:MM UTC*`
+
 ### Naming & Location Override
 1. **Honor User Requests:** If the user specifies a directory for plans in their prompt (e.g., "Save to `my-plans/`"), you MUST honor that path.
 2. **Default Location:** If no directory is specified, strictly save the active TDD plan to:

@@ -106,3 +106,8 @@ Before you execute any code, you MUST load your context.
 ### Execution Checkpoint Rule
 When you finish a batch of 3 tasks, *before* you pause to say "Ready for feedback", you MUST write the complete batch execution log into `progress.md` in the target directory used above.
 
+### Automated Timestamping
+- Every time you modify a memory file (`task_plan.md`, `active_tdd_plan.md`, `findings.md`, `progress.md`), you MUST append a horizontal rule and a timestamp at the very bottom:
+  `---`
+  `*Last Updated: YYYY-MM-DD HH:MM UTC*`
+

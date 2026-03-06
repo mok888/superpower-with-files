@@ -253,4 +253,9 @@ When the Code Quality Reviewer approves a task, you MUST do the following before
 2. Append the test output directly to the `## Test Results` table.
 3. Update the `Files created/modified` bullet points under the active phase.
 
+### Automated Timestamping
+- Every time you modify a memory file (`task_plan.md`, `active_tdd_plan.md`, `findings.md`, `progress.md`), you MUST append a horizontal rule and a timestamp at the very bottom:
+  `---`
+  `*Last Updated: YYYY-MM-DD HH:MM UTC*`
+
 Never say "Task Complete" without writing the receipts to `progress.md` first.
