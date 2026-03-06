@@ -123,11 +123,29 @@ After saving the plan, offer execution choice:
    `🚀 **SUPERPOWER ACTIVE:** spf-write-plan`
 2. **Context Independence:** You are NOT restricted to dedicated worktrees. Proceed in any project root.
 
+### SMART PLANNING RULES
+1. **Adaptive Granularity**: Add `complexity: simple | medium | complex` to the plan header.
+   - `simple`: Combine boilerplate and logic into fewer, larger tasks. Keep all instructions in `active_tdd_plan.md`.
+   - `medium/complex`: Use the **Split Architecture**.
+2. **Split Architecture (Verbosity Reduction)**:
+   - For non-simple projects, `active_tdd_plan.md` MUST remain a concise high-level task list.
+   - Detailed implementation instructions (exact code, file modifications, specific commands) MUST be moved to:
+     **`.superpower-with-files/guides/task-N.md`** 
+   - In the main plan, reference the guide: `Guide: See guides/task-N.md`.
+3. **Dependency & Parallel Markers**: Each task block in the plan MUST include:
+   - `Depends on: [Task ID | None]`
+   - `Parallel with: [Task ID | None]`
+4. **Smarter Test Detection**: Before drafting the test section, you MUST auto-detect the test runner:
+   - `Cargo.toml` -> `cargo test`
+   - `pyproject.toml` -> `pytest`
+   - `package.json` -> `npm test`
+5. **Optional Markers**: Mark routine verification as `(optional)`.
+6. **Template Support**: Use relevant templates from the `templates/` directory to guide choices.
+
 ### STRICT PLANNING ONLY
-1. **No Execution:** While using this skill, you MUST NOT execute any code, run any tests, or perform any implementation tasks.
-2. **Phase Completion:** Your sole responsibility is to generate the `active_tdd_plan.md`, ensure it is saved correctly, and check off the corresponding phase in `task_plan.md`.
-3. **Implicit Stop & Handoff Prompt:** Once the plan is saved and the phase is checked off, you MUST stop and prompt the user exactly like this:
-   > "Planning phase complete. The plan has been saved to [path]. Please review and approve. To proceed with implementation, use the execution command: **'Execute the plan.'**"
+1. **No Execution:** While using this skill, you MUST NOT execute code or run tests.
+2. **Implicit Stop & Handoff Prompt:** 
+   > "Planning phase complete. The plan and guides have been saved to [.superpower-with-files/]. Please review. To proceed, use: **'Execute the plan.'**"
 
 ### Automated Timestamping
 - Every time you modify a memory file (`task_plan.md`, `active_tdd_plan.md`, `findings.md`, `progress.md`), you MUST append a horizontal rule and a timestamp at the very bottom:

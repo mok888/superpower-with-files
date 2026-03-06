@@ -98,12 +98,9 @@ After all tasks complete and verified:
 
 ### Pre-Flight Context Checklist
 Before you execute any code, you MUST load your context. 
-1. **Look for context** in the user's requested directory (if specified) OR the default `.superpower-with-files/` directory.
-2. **Read the following files** from that directory:
-   - `task_plan.md` to understand the high-level goal and active Phase.
-   - `findings.md` to understand any architectural constraints.
-   - `progress.md` to see what tests have already run.
-   - `active_tdd_plan.md` to get your exact minute-by-minute execution steps.
+1. **Read Core Files**: Read `task_plan.md`, `findings.md`, and `active_tdd_plan.md`.
+2. **Guide-Aware Loading**: Before starting Task N, check if **`.superpower-with-files/guides/task-N.md`** exists. If it does, YOU MUST READ IT. It contains the detailed "how-to" for the task.
+3. **Sync Progress**: Check `progress.md` to resume correctly.
 
 ### Execution Checkpoint Rule
 When you finish a batch of 3 tasks, *before* you pause to say "Ready for feedback", you MUST:
