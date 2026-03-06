@@ -1,31 +1,63 @@
-# superpower-with-files
+# superpower-with-files 🚀
 
-This repository contains the unified workflow combining the persistent memory format of `planning-with-files` with the parallel, TDD execution framework of `superpowers`.
+The ultimate unified AI workflow. This repository merges the **persistent memory loops** of `planning-with-files` with the **high-speed TDD execution** of `superpowers`.
 
-## Features
-This workflow gives you access to the advanced planning and execution capabilities of `superpowers`, but forces all the memory logs (task plans, test results, active TDD execution steps) into a clean, unified location so your project root doesn't get cluttered.
+## 📦 Features
+- **Persistent AI Memory**: AI agents never "lose their spot" thanks to Manus-style file logging.
+- **Dynamic TDD Loop**: Built-in instructions for writing tests before code, debugging, and subagent collaboration.
+- **Workspace Clutter Control**: All AI logs (plans, findings, progress) are automatically routed to a unified directory, keeping your project root clean.
+- **Prompt-Driven Paths**: Tell the agent where to save files directly in your prompt.
 
-## How to Use (End Users)
+---
 
-This repository is designed to be completely plug-and-play. You do not need to build or compile anything. 
+## 🚀 Quick Start (End Users)
 
-The `/skills`, `/hooks`, and `/templates` folders are explicitly tracked in Git and contain the fully unified logic.
+This repository is **plug-and-play**. You do not need to build or compile anything.
 
-1. Clone this repository.
-2. Point your AI agent (Claude Code, Cursor, OpenCode, OpenClaw, Gemini, etc.) directly at the `/skills` directory.
-3. Start executing plans.
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/mok888/superpower-with-files.git
+   ```
+2. **Add Skills to your Agent**:
+   Point your AI agent (Claude, Cursor, etc.) at the `/skills` folder in this repo.
 
-## Customizing the Memory Path
+3. **Start Coding**:
+   ```text
+   "Create a plan for <feature> and save everything in .ai/"
+   ```
 
-By default, the unified skills save all AI plans and test results to `<project-root>/.superpower-with-files/`. 
+---
 
-If you want to use a different directory (e.g., `.ai/` or `docs/plans/`), you can simply **instruct the agent in your prompt**. 
+## 🛠 Platform Support
 
-**Example Prompt:**
-> "Create a development plan for the user profile feature and save everything in the `.ai/` directory."
+| Platform | Setup Method | Documentation |
+| :--- | :--- | :--- |
+| **Claude Code** | Native Plugin | [manifest.json](file:///.claude-plugin/plugin.json) |
+| **Cursor** | Context Skills | [hooks.json](file:///.cursor/hooks.json) |
+| **OpenCode** | Global Symlink | [INSTALL.md](file:///.opencode/INSTALL.md) |
+| **OpenClaw** | Local/Global Skills | [INSTALL.md](file:///.openclaw/INSTALL.md) |
+| **Gemini CLI** | Skill Linking | `gemini skills link ./skills` |
 
-The agent will automatically honor your requested path for all artifacts (plans, findings, progress logs) while maintaining the unified file structure.
+---
 
-## File Format
+## 📂 Architecture: The Unified Memory Path
 
-All AI actions executed via these skills will route directly to identically named files inside a `.superpower-with-files/` folder (meaning `task_plan.md`, `active_tdd_plan.md`, and `progress.md` will not clutter your repository root).
+By default, everything is saved to `<project-root>/.superpower-with-files/`. You can customize this path by simply **instructing the agent in your prompt**.
+
+### Standard Memory Files:
+- `task_plan.md`: High-level phase checklist and goal tracking.
+- `active_tdd_plan.md`: Granular, minute-by-minute execution steps.
+- `progress.md`: Complete session log, test results, and error tracking.
+- `findings.md`: Research, architectural decisions, and key constraints.
+
+---
+
+## 👩‍💻 Maintainer Notes (Repo Owner)
+
+If you are the owner of this repository and want to sync with upstream updates from the original authors, please refer to:
+👉 **[MAINTAINER.md](file:///MAINTAINER.md)**
+
+---
+
+## License
+MIT
