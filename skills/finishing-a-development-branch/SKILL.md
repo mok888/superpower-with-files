@@ -198,3 +198,20 @@ git worktree remove <worktree-path>
 
 **Pairs with:**
 - **using-git-worktrees** - Cleans up worktree created by that skill
+
+## Superplanner Memory Integration (Unified Extension)
+**CRITICAL THEMATIC RULE:** You are working inside the `superpower-with-files` unified framework.
+
+### Skill Announcement
+- Every time you start using this skill, you MUST first announce: 
+  `🚀 **SUPERPOWER ACTIVE:** finishing-a-development-branch`
+
+### Workflow Standardization
+1. **Context Independence:** While Step 5 suggests cleaning up worktrees, if you are working in a standard project root (not a worktree), simply skip the worktree removal command.
+2. **Memory Cleanup:** Before merging or pushing, ensure all `progress.md` and `task_plan.md` phases related to this feature are marked as `complete` in the branded directory:
+   **`.superpower-with-files/`**
+
+### Automated Timestamping
+- Every time you modify a memory file, you MUST append a horizontal rule and a timestamp at the very bottom:
+  `---`
+  `*Last Updated: YYYY-MM-DD HH:MM UTC*`

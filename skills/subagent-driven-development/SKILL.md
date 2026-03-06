@@ -244,9 +244,14 @@ Done!
 ## Superplanner Memory Integration (Unified Extension)
 **CRITICAL THEMATIC RULE:** You are working inside the `superpower-with-files` unified framework.
 
-### Skill Announcement
-- Every time you start using this skill, you MUST first announce: 
-  `🚀 **SUPERPOWER ACTIVE:** subagent-driven-development`
+### Workflow Standardization
+1. **Skill Announcement:** Every time you start using this skill, you MUST first announce: 
+   `🚀 **SUPERPOWER ACTIVE:** subagent-driven-development`
+2. **Context Independence:** You are NOT restricted to dedicated worktrees. Proceed in any project root as requested by the user.
+3. **Naming & Location Precedence:**
+   - **User Override [HIGHEST]:** Honor user-specified paths for implementation plans (e.g., `projects/tgnews`).
+   - **SPF Default [SECONDARY]:** Otherwise, load plans from `.superpower-with-files/active_tdd_plan.md`.
+   - **Legacy paths:** Ignore `docs/plans/` unless specifically requested.
 
 When the Code Quality Reviewer approves a task, you MUST do the following before moving on:
 1. Open the `progress.md` file in the **active memory directory** (defaulting to `.superpower-with-files/`).
