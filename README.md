@@ -10,23 +10,24 @@ The ultimate unified AI workflow. This repository merges the **persistent memory
 
 ---
 
-## ⚡ Quick Start (Plugin Installation)
+## ⚡ Quick Start (Universal Installation)
 
-SPF V2.2 is structured as a **native plugin**.
+SPF V2.2 is a **Universal Plugin**. You can install it once and use it everywhere.
 
-1. **Install with Claude Code**:
-   ```bash
-   claude plugin add https://github.com/mok888/superpower-with-files
-   ```
-2. **Standard Setup**:
-   ```bash
-   git clone https://github.com/mok888/superpower-with-files.git
-   ```
-   Point your AI agent (Cursor, OpenCode, Codex) at the `/skills` folder.
+### 🌟 The Bootstrap
+Tell your agent (Claude, Aider, Roo Code):
+> "Read and follow the installation instructions in: **`bootstrap.md`**"
 
-3. **Phase 1: Planning**:
-   Activate with `/spf-plan`:
-   > "Create a plan for <feature>. Use **medium complexity**."
+---
+
+## 🛠 Platform Support Matrix
+
+| Platform | Recommended Setup | Shortcut |
+| :--- | :--- | :--- |
+| **Claude Code** | Native Plugin | `claude plugin add ...` |
+| **Cursor** | `.cursorrules` | [Config](./.cursor/hooks.json) |
+| **Aider / Cline** | Instruction Injection | [Guide](./bootstrap.md#2-aider--roo-code--cline) |
+| **OpenCode** | Skill Link | [Install](./.opencode/INSTALL.md) |
    *(The agent will generate a concise high-level plan and detailed **Modular Task Guides** in `.superpower-with-files/guides/`.)*
 
 4. **Phase 2: Execution**:
