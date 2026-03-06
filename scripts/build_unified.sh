@@ -78,27 +78,6 @@ if [ -d "$OVERLAYS_DIR/superpowers" ]; then
     done
 fi
 
-# 5. Apply Custom Memory Directory Name (User Configuration)
-echo "5. Applying Custom Memory Directory Configuration..."
-MEMORY_DIR=".superpower-with-files"
-if [ -f "$REPO_ROOT/.env" ]; then
-    # Load env file safely
-    export $(grep -v '^#' "$REPO_ROOT/.env" | xargs -d '\n')
-    if [ -n "$CUSTOM_MEMORY_DIR" ]; then
-        MEMORY_DIR="$CUSTOM_MEMORY_DIR"
-        echo "  -> Found .env overriding default directory to: /$MEMORY_DIR/"
-    fi
-fi
-
-if [ "$MEMORY_DIR" != ".superpower-with-files" ]; then
-    echo "  -> Replacing hardcoded '.superpower-with-files/' with '$MEMORY_DIR/' across all generated files..."
-    
-    # Find all generated files and perform inline sed replacement
-    find "$SKILLS_DIR" "$HOOKS_DIR" "$TEMPLATES_DIR" -type f -exec sed -i "s/\.superpower-with-files\//$MEMORY_DIR\//g" {} +
-else
-    echo "  -> Using default memory directory: /.superpower-with-files/"
-fi
-
 echo "==============================================="
 echo " Build Complete: Core and Overlays merged into /skills"
 echo "==============================================="

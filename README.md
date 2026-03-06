@@ -19,15 +19,12 @@ The `/skills`, `/hooks`, and `/templates` folders are explicitly tracked in Git 
 
 By default, the unified skills save all AI plans and test results to `<project-root>/.superpower-with-files/`. 
 
-If you want to rename this directory (e.g., to `.ai/` or `docs/plans/`), you can do so by creating a `.env` file before linking the skills:
+If you want to use a different directory (e.g., `.ai/` or `docs/plans/`), you can simply **instruct the agent in your prompt**. 
 
-1. Create a `.env` file in the `superpower-with-files` root directory:
-   ```bash
-   CUSTOM_MEMORY_DIR=".ai"
-   ```
-2. If you are the maintainer, run `./scripts/build_unified.sh`. If you are an end-user, simply trigger the agent, and the skills will now dynamically read/write to your custom directory instead of `.superpower-with-files/`.
+**Example Prompt:**
+> "Create a development plan for the user profile feature and save everything in the `.ai/` directory."
 
-*(Note: If you download a pre-compiled version of this repo, you may need to manually execute the `sed` replacement or ask the maintainer to compile it with your preferred string.)*
+The agent will automatically honor your requested path for all artifacts (plans, findings, progress logs) while maintaining the unified file structure.
 
 ## File Format
 
