@@ -10,20 +10,23 @@ The ultimate unified AI workflow. This repository merges the **persistent memory
 
 ---
 
-## 🚀 Quick Start (End Users)
+## ⚡ Quick Start (Plugin Installation)
 
-This repository is **plug-and-play**. You do not need to build or compile anything.
+SPF V2.2 is structured as a **native plugin**.
 
-1. **Clone the repository**:
+1. **Install with Claude Code**:
+   ```bash
+   claude plugin add https://github.com/mok888/superpower-with-files
+   ```
+2. **Standard Setup**:
    ```bash
    git clone https://github.com/mok888/superpower-with-files.git
    ```
-2. **Add Skills to your Agent**:
-   Point your AI agent (Claude, Cursor, etc.) at the `/skills` folder in this repo.
+   Point your AI agent (Cursor, OpenCode, Codex) at the `/skills` folder.
 
 3. **Phase 1: Planning**:
-   Ask for a plan using the shorthand `/spf-plan` (or `/spf-write-plan`):
-   > "Create a plan for the <feature>. Use **medium complexity**."
+   Activate with `/spf-plan`:
+   > "Create a plan for <feature>. Use **medium complexity**."
    *(The agent will generate a concise high-level plan and detailed **Modular Task Guides** in `.superpower-with-files/guides/`.)*
 
 4. **Phase 2: Execution**:

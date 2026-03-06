@@ -2,12 +2,9 @@
 # We explicitly track skills/, hooks/, and templates/ so end users can pull the repo and use it immediately.
 # Only the repo owner (maintainer) needs to run the build_unified.sh script.
 
-# Ignore all Maintainer-related files (Source, Submodules, and Scripts)
-scripts/
-MAINTAINER.md
-vendor/
-overlays/
-integration_analysis.md
+# Ignore Maintainer-related Core Source
+.spf-core/
+build_unified.sh
 
 # Ignore the AI memory directory
 .superpower-with-files/
