@@ -1,0 +1,12 @@
+{
+    "name": "superpower-with-files",
+    "displayName": "Superpower With Files",
+    "description": "The ultimate unified workflow for AI agents. Combines persistent memory (planning-with-files) with rapid parallel execution (superpowers).",
+    "categories": [
+        "Programming",
+        "AI"
+    ],
+    "icon": "icon.png",
+    "screenshots": [],
+    "homepage": "https://github.com/mok888/superpower-with-files"
+}

@@ -1,0 +1,7 @@
+{
+    "skills_path": "skills",
+    "hooks": {
+        "pre_tool_use": "hooks/init-session.sh",
+        "post_tool_use": "hooks/check-complete.sh"
+    }
+}

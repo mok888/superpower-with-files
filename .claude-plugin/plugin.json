@@ -1,0 +1,20 @@
+{
+    "name": "superpower-with-files",
+    "version": "1.0.0",
+    "description": "Unified AI workflow merging persistent file-based planning with high-speed TDD execution.",
+    "author": {
+        "name": "mok888",
+        "url": "https://github.com/mok888"
+    },
+    "repository": "https://github.com/mok888/superpower-with-files",
+    "license": "MIT",
+    "keywords": [
+        "planning",
+        "tdd",
+        "manus",
+        "superpowers",
+        "workflow",
+        "markdown",
+        "context-engineering"
+    ]
+}
