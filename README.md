@@ -39,7 +39,7 @@ This repository is **plug-and-play**. You do not need to build or compile anythi
 | :--- | :--- | :--- |
 | **Claude Code** | Native Plugin | [manifest.json](file:///.claude-plugin/plugin.json) |
 | **Cursor** | Context Skills | [hooks.json](file:///.cursor/hooks.json) |
-| **OpenCode** | Global Symlink | [INSTALL.md](file:///.opencode/INSTALL.md) |
+| **OpenCode** | Config Symlink | [INSTALL.md](file:///.opencode/INSTALL.md) |
 | **OpenClaw** | Local/Global Skills | [INSTALL.md](file:///.openclaw/INSTALL.md) |
 | **Codex** | Skills Discovery | [INSTALL.md](file:///.codex/INSTALL.md) |
 | **Gemini CLI** | Skill Linking | `gemini skills link ./skills` |

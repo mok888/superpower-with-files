@@ -12,8 +12,8 @@ Supercharge your OpenCode agent with unified persistent memory and TDD superpowe
 2. **Deploy Skills**:
    Link the unified skills to your global OpenCode directory:
    ```bash
-   mkdir -p ~/.opencode/skills
-   ln -s $(pwd)/superpower-with-files/skills/* ~/.opencode/skills/
+   mkdir -p ~/.config/opencode/skills
+   ln -s $(pwd)/superpower-with-files/skills/* ~/.config/opencode/skills/
    ```
 
 3. **Verify**:
