@@ -34,16 +34,3 @@ SPF uses a strict two-phase workflow with shorthand commands:
 *Last Updated: 2026-03-06 04:16 UTC*
 
 ---
-
-## 🚀 Usage
-
-Once linked, you can invoke the planning and execution phases using the shorthand aliases:
-
-- **Planning**: `/spf-plan`
-- **Execution**: `/spf-execute`
-
-Example:
-> "Create a plan for a Telegram bot using aiogram and save it in .ai/"
-
----
-*Last Updated: 2026-03-06 04:13 UTC*

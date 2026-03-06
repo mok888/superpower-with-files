@@ -32,7 +32,3 @@ SPF uses a strict two-phase workflow with shorthand commands:
 
 ---
 *Last Updated: 2026-03-06 04:16 UTC*
-
-## 🎯 Usage
-Once installed, Codex will automatically detect and use these skills. To keep your project workspace clean, start your tasks with:
-> "Plan the next steps for <feature> and save to .ai/"
