@@ -25,9 +25,9 @@ Supercharge your OpenCode agent with unified persistent memory and TDD superpowe
 
 SPF uses a strict two-phase workflow with shorthand commands:
 
-1. **Planning**: Use `/spf-plan`
+1. **Planning**: Use `/spf-write-plan`
    > "Create a plan for <task> and save it in .ai/"
-2. **Execution**: Use `/spf-execute`
+2. **Execution**: Use `/spf-exec-plan`
    > "Execute the plan"
 
 ---

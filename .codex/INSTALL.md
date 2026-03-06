@@ -25,9 +25,9 @@ Integrate the unified `superpower-with-files` workflow directly into your Codex 
 
 SPF uses a strict two-phase workflow with shorthand commands:
 
-1. **Planning**: Use `/spf-plan`
+1. **Planning**: Use `/spf-write-plan`
    > "Create a plan for <task> and save it in .ai/"
-2. **Execution**: Use `/spf-execute`
+2. **Execution**: Use `/spf-exec-plan`
    > "Execute the plan"
 
 ---
