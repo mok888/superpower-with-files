@@ -38,7 +38,6 @@ This repository is **plug-and-play**. You do not need to build or compile anythi
 | Platform | Setup Method | Documentation |
 | :--- | :--- | :--- |
 | **Claude Code** | Native Plugin | [manifest.json](file:///.claude-plugin/plugin.json) |
-
 | **Cursor** | Context Skills | [hooks.json](file:///.cursor/hooks.json) |
 | **OpenCode** | Config Symlink | [INSTALL.md](file:///.opencode/INSTALL.md) |
 | **OpenClaw** | Local/Global Skills | [INSTALL.md](file:///.openclaw/INSTALL.md) |
