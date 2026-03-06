@@ -55,8 +55,8 @@ By default, everything is saved to `<project-root>/.superpower-with-files/`. You
 ## ❤️ Appreciation
 
 Special thanks to the original creators whose work made this unified workflow possible:
-- **[planning-with-files](https://github.com/OthmanAdi/planning-with-files)** by @OthmanAdi - For the ingenious Manus-style persistent memory format.
 - **[superpowers](https://github.com/obra/superpowers)** by @obra - For the professional-grade, high-speed TDD execution framework.
+- **[planning-with-files](https://github.com/OthmanAdi/planning-with-files)** by @OthmanAdi - For the ingenious Manus-style persistent memory format.
 
 ## License
 MIT
