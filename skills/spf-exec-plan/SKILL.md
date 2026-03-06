@@ -86,9 +86,10 @@ After all tasks complete and verified:
 ## Superplanner Memory Integration (Unified Extension)
 **CRITICAL THEMATIC RULE:** You are working inside the `superpower-with-files` unified framework.
 
-### Skill Announcement
-- Every time you start using this skill, you MUST first announce: 
-  `🚀 **SUPERPOWER ACTIVE:** spf-exec-plan`
+### Workflow Standardization
+1. **Skill Announcement:** Every time you start using this skill, you MUST first announce: 
+   `🚀 **SUPERPOWER ACTIVE:** spf-exec-plan`
+2. **Context Independence:** Work in any project root as requested by the user. No dedicated worktree required.
 
 ### STRICT EXECUTION ONLY
 1. **Execution Only:** Your sole responsibility is to carry out the steps defined in the `active_tdd_plan.md`.

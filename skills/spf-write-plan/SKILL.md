@@ -118,9 +118,10 @@ After saving the plan, offer execution choice:
 ## Superplanner Memory Integration (Unified Extension)
 **CRITICAL THEMATIC RULE:** You are working inside the `superpower-with-files` unified framework. 
 
-### Skill Announcement
-- Every time you start using this skill, you MUST first announce: 
-  `🚀 **SUPERPOWER ACTIVE:** spf-write-plan`
+### Workflow Standardization
+1. **Skill Announcement:** Every time you start using this skill, you MUST first announce: 
+   `🚀 **SUPERPOWER ACTIVE:** spf-write-plan`
+2. **Context Independence:** You are NOT restricted to dedicated worktrees. Proceed in any project root.
 
 ### STRICT PLANNING ONLY
 1. **No Execution:** While using this skill, you MUST NOT execute any code, run any tests, or perform any implementation tasks.
@@ -133,7 +134,8 @@ After saving the plan, offer execution choice:
   `---`
   `*Last Updated: YYYY-MM-DD HH:MM UTC*`
 
-### Naming & Location Override
-1. **Honor User Requests:** If the user specifies a directory for plans in their prompt (e.g., "Save to `my-plans/`"), you MUST honor that path.
-2. **Default Location:** If no directory is specified, strictly save the active TDD plan to:
+### Naming & Location Precedence
+1. **User Override [HIGHEST]:** If the user specifies any path (e.g., "Save to `projects/tgnews`"), you MUST honor that path immediately.
+2. **SPF Default [SECONDARY]:** If no path is specified by the user, save to:
    **`.superpower-with-files/active_tdd_plan.md`**
+3. **Legacy paths (docs/plans/):** Ignore any legacy instructions about `docs/plans/` unless specifically requested by the user.
