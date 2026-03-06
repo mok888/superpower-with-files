@@ -22,14 +22,14 @@ This repository is **plug-and-play**. You do not need to build or compile anythi
    Point your AI agent (Claude, Cursor, etc.) at the `/skills` folder in this repo.
 
 3. **Phase 1: Planning**:
-   Ask for a plan using the shorthand `/spf-write-plan`:
-   > "Create a plan for the <feature> and save it in .ai/"
-   *(The agent will write the plan and stop.)*
+   Ask for a plan using the shorthand `/spf-plan` (or `/spf-write-plan`):
+   > "Create a plan for the <feature>. Use **medium complexity**."
+   *(The agent will generate a concise high-level plan and detailed **Modular Task Guides** in `.superpower-with-files/guides/`.)*
 
 4. **Phase 2: Execution**:
-   Once approved, trigger the implementation using `/spf-exec-plan`:
+   Once approved, trigger the implementation using `/spf-execute` (or `/spf-exec-plan`):
    > "Execute the plan."
-   *(The agent will now implement the code task-by-task.)*
+   *(The agent will now implement the code task-by-task, syncing its progress to **Git Pulse** automatically.)*
 
 ---
 
