@@ -298,6 +298,10 @@ From debugging sessions:
 ## Superplanner Memory Integration (Unified Extension)
 **CRITICAL THEMATIC RULE:** You are working inside the `superpower-with-files` unified framework.
 
+### Skill Announcement
+- Every time you start using this skill, you MUST first announce: 
+  `🚀 **SUPERPOWER ACTIVE:** systematic-debugging`
+
 ### Error Tracking Rule
 Any and every time a root-cause hypothesis fails, you MUST immediately log the failed attempt into the `## Error Log` table in the `progress.md` file (located in the **active memory directory**, defaulting to `.superpower-with-files/`). 
 

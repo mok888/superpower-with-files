@@ -118,6 +118,10 @@ After saving the plan, offer execution choice:
 ## Superplanner Memory Integration (Unified Extension)
 **CRITICAL THEMATIC RULE:** You are working inside the `superpower-with-files` unified framework. 
 
+### Skill Announcement
+- Every time you start using this skill, you MUST first announce: 
+  `🚀 **SUPERPOWER ACTIVE:** writing-plans`
+
 ### STRICT PLANNING ONLY
 1. **No Execution:** While using this skill, you MUST NOT execute any code, run any tests, or perform any implementation tasks.
 2. **Phase Completion:** Your sole responsibility is to generate the `active_tdd_plan.md`, ensure it is saved correctly, and check off the corresponding phase in `task_plan.md`.
