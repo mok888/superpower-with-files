@@ -144,6 +144,7 @@ After saving the plan, offer execution choice:
    - `package.json` -> `npm test`
    - No detection -> Ask the user.
 3. **Optional Markers**: You may mark routine verification steps as `(optional)` (e.g., `Step 5: Verify structure (optional)`).
+4. **Template Support**: If a specific framework or language is mentioned (e.g., "Python CLI", "React Component"), you MUST check the `templates/` directory within this skill and use the corresponding template to guide your project structure and library choices.
 
 ### Naming & Location Precedence
 1. **User Override [HIGHEST]:** If the user specifies any path (e.g., "Save to `projects/tgnews`"), you MUST honor that path immediately.
