@@ -52,12 +52,12 @@ By default, everything is saved to `<project-root>/.superpower-with-files/`. You
 
 ---
 
-## 👩‍💻 Maintainer Notes (Repo Owner)
+## ❤️ Appreciation
 
-If you are the owner of this repository and want to sync with upstream updates from the original authors, please refer to:
-👉 **[MAINTAINER.md](file:///MAINTAINER.md)**
-
----
+Special thanks to the original creators whose work made this unified workflow possible:
+- **[planning-with-files](https://github.com/OthmanAdi/planning-with-files)** by @OthmanAdi - For the ingenious Manus-style persistent memory format.
+- **[superpowers](https://github.com/obra/superpowers)** by @obra - For the professional-grade, high-speed TDD execution framework.
 
 ## License
 MIT
+
