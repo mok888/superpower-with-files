@@ -21,10 +21,15 @@ This repository is **plug-and-play**. You do not need to build or compile anythi
 2. **Add Skills to your Agent**:
    Point your AI agent (Claude, Cursor, etc.) at the `/skills` folder in this repo.
 
-3. **Start Coding**:
-   ```text
-   "Create a plan for <feature> and save everything in .ai/"
-   ```
+3. **Phase 1: Planning**:
+   Start by asking for a plan:
+   > "Create a plan for the <feature> and save it in .ai/"
+   *(The agent will write the plan and stop.)*
+
+4. **Phase 2: Execution**:
+   Once you approve the plan, trigger the execution:
+   > "Execute the plan."
+   *(The agent will now implement the code task-by-task.)*
 
 ---
 
@@ -44,6 +49,9 @@ This repository is **plug-and-play**. You do not need to build or compile anythi
 ## 📂 Architecture: The Unified Memory Path
 
 By default, everything is saved to `<project-root>/.superpower-with-files/`. You can customize this path by simply **instructing the agent in your prompt**.
+
+> [!IMPORTANT]
+> **Strict Phase Separation**: The workflow is split into two distinct modes: **Planning** (thinking/designing) and **Execution** (doing/writing). The agent will not touch code until you explicitly give the "Execute" command.
 
 ### Standard Memory Files:
 - `task_plan.md`: High-level phase checklist and goal tracking.
