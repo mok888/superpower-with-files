@@ -1,18 +1,27 @@
-# INSTALL superpower-with-files (OpenClaw)
+# 🏗 OpenClaw Installation Guide
 
-To install these unified skills into your OpenClaw environment:
+Bring Manus-style planning and TDD execution to your OpenClaw agents.
 
-1. Clone this repository:
+## 📥 Installation
+
+1. **Clone the repository**:
    ```bash
    git clone https://github.com/mok888/superpower-with-files.git
    ```
-2. Copy the skills to your local OpenClaw directory:
+
+2. **Deploy Skills**:
+   Copy or link the skills to your local or global OpenClaw directory:
    ```bash
    mkdir -p ~/.openclaw/skills
    cp -r superpower-with-files/skills/* ~/.openclaw/skills/
    ```
-3. Check the status:
+
+3. **Verify**:
    ```bash
    openclaw status
    ```
-4. Your agent is now supercharged with persistent memory and TDD workflows.
+
+## 🎯 Usage
+Your OpenClaw agent is now supercharged. To use the dynamic save path feature, simply prompt:
+> "Let's implement <task>, using .superpower/ for logs."
+
