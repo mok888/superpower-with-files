@@ -22,15 +22,22 @@ These pointers are saved in `.gitmodules`:
 	url = https://github.com/mok888/superpowers.git
 ```
 
-## How to Update
-If either upstream repository receives an update (e.g., a bug fix to a specific prompt), simply run:
+## Repository Workflows
 
+This repository is designed with two distinct workflows in mind:
+
+### 1. The Maintainer Workflow (Updating Upstream)
+As the repository owner, you are responsible for pulling improvements from the original `planning-with-files` and `superpowers` repositories without overwriting our custom memory rules. 
+
+When there is an upstream update, run:
 ```bash
-git submodule update --remote
-./scripts/build_unified.sh
+git submodule update --remote      # Pull fresh code from original authors
+./scripts/build_unified.sh         # Re-inject our custom overlays 
+git add . && git commit -m "update skills"
+git push origin main               # Push the natively compiled skills to Github
 ```
 
-This will pull the latest code, automatically re-apply the `.superpower-with-files/` memory rules, and output the fresh logic into your local `/skills` directory. The `/skills`, `/hooks`, and `/templates` directories are `.gitignored` because they generate dynamically on your machine.
+### 2. The End-User Workflow (Cloning & Using)
+End users **do not** need to touch submodules or run bash scripts! The `/skills`, `/hooks`, and `/templates` folders are explicitly tracked in Git.
 
-## File Format
-All AI actions executed via these skills will route directly to identically named files inside the `.superpower-with-files/` folder (meaning `task_plan.md`, `active_tdd_plan.md`, and `progress.md` will not clutter your repository root).
+If you are an end-user, simply clone this repository and immediately point your AI agent (Claude Code, Cursor, OpenCode, etc.) at the `/skills` directory. It is totally plug-and-play.
