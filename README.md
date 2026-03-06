@@ -12,7 +12,7 @@ This repository is designed to be completely plug-and-play. You do not need to b
 The `/skills`, `/hooks`, and `/templates` folders are explicitly tracked in Git and contain the fully unified logic.
 
 1. Clone this repository.
-2. Point your AI agent (Claude Code, Cursor, OpenCode, Gemini, etc.) directly at the `/skills` directory.
+2. Point your AI agent (Claude Code, Cursor, OpenCode, OpenClaw, Gemini, etc.) directly at the `/skills` directory.
 3. Start executing plans.
 
 ## Customizing the Memory Path
