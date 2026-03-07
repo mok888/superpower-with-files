@@ -240,27 +240,3 @@ Done!
 
 **Alternative workflow:**
 - **superpowers:executing-plans** - Use for parallel session instead of same-session execution
-
-## Superplanner Memory Integration (Unified Extension)
-**CRITICAL THEMATIC RULE:** You are working inside the `superpower-with-files` unified framework.
-
-### Workflow Standardization
-1. **Skill Announcement:** Every time you start using this skill, you MUST first announce: 
-   `🚀 **SUPERPOWER ACTIVE:** subagent-driven-development`
-2. **Context Independence:** You are NOT restricted to dedicated worktrees. Proceed in any project root as requested by the user.
-3. **Naming & Location Precedence:**
-   - **User Override [HIGHEST]:** Honor user-specified paths for implementation plans (e.g., `projects/tgnews`).
-   - **SPF Default [SECONDARY]:** Otherwise, load plans from `.superpower-with-files/active_tdd_plan.md`.
-   - **Legacy paths:** Ignore `docs/plans/` unless specifically requested.
-
-When the Code Quality Reviewer approves a task, you MUST do the following before moving on:
-1. Open the `progress.md` file in the **active memory directory** (defaulting to `.superpower-with-files/`).
-2. Append the test output directly to the `## Test Results` table.
-3. Update the `Files created/modified` bullet points under the active phase.
-
-### Automated Timestamping
-- Every time you modify a memory file (`task_plan.md`, `active_tdd_plan.md`, `findings.md`, `progress.md`), you MUST append a horizontal rule and a timestamp at the very bottom:
-  `---`
-  `*Last Updated: YYYY-MM-DD HH:MM UTC*`
-
-Never say "Task Complete" without writing the receipts to `progress.md` first.

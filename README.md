@@ -170,6 +170,54 @@ Located in `skills/spf-write-plan/templates/`:
 
 ---
 
+## 📋 Plan Management
+
+Track, list, and resume plans across all projects.
+
+### Commands
+
+| Command                  | Action                          | Example                      |
+| ------------------------ | ------------------------------- | ---------------------------- |
+| `/spf list`              | List all plans with status      | `/spf list`                    |
+| `/spf status <project>`  | Detailed plan status            | `/spf status nautilus-trader`  |
+| `/spf resume <project>`  | Resume execution                | `/spf resume nautilus-trader`  |
+| `/spf block <project>`   | Mark as blocked                 | `/spf block legacy-api`        |
+| `/spf unblock <project>` | Remove blocked status           | `/spf unblock legacy-api`      |
+| `/spf complete <project>`| Mark complete                   | `/spf complete quant-bot`      |
+| `/spf archive <project>` | Move to archive                 | `/spf archive old-project`     |
+
+### Plan Registry
+
+Plans are tracked in `.superpower-with-files/_registry/PLANS.md`:
+
+```markdown
+| Project          | Goal                    | Status      | Phase | Tasks  | Updated    |
+| ---------------- | ----------------------- | ----------- | ----- | ------ | ---------- |
+| nautilus-trader  | Implement JWT auth      | in_progress | 3/5   | 12/25  | 2025-03-07 |
+| quant-bot        | Add backtesting engine  | complete    | 5/5   | 30/30  | 2025-03-06 |
+| legacy-api       | Migrate to v2           | blocked     | 2/4   | 8/20   | 2025-03-01 |
+```
+
+### Status Values
+
+- `pending` - Plan created, not started
+- `in_progress` - Currently executing
+- `blocked` - Cannot proceed (needs external input)
+- `complete` - All phases done
+
+### Workflow
+
+```dot
+digraph plan_mgmt {
+    rankdir=LR;
+    "/spf list" -> "View all plans";
+    "/spf status X" -> "See details";
+    "/spf resume X" -> "Continue work";
+}
+```
+
+---
+
 ## 🔄 Upstream Sync Workflow
 
 SPF tracks two upstream repositories:

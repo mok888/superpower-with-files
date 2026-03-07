@@ -102,14 +102,40 @@ digraph brainstorming {
 - Every time you start using this skill, you MUST first announce: 
   `🚀 **SUPERPOWER ACTIVE:** brainstorming`
 
-### Workflow Standardization
-1. **Naming & Location Precedence:**
-   - **User Override [HIGHEST]:** If the user specifies any path (e.g., "Save to `projects/tgnews`"), you MUST honor that path immediately.
-   - **SPF Default [SECONDARY]:** If no path is specified, save design docs to:
-     **`.superpower-with-files/design/YYYY-MM-DD-<topic>.md`**
-   - **Legacy paths (docs/plans/):** Ignore any legacy instructions about `docs/plans/` unless specifically requested by the user.
+### Design File Location (Per-Project Isolation)
 
-2. **Transition Rule:** After the design is approved, you MUST invoke **`spf-write-plan`** to create the implementation plan. Do not refer to it by any other name.
+**Path Priority:**
+1. **User Override [HIGHEST]:** If user specifies a path, use it exactly.
+2. **Project-Based Default [SECONDARY]:** `.superpower-with-files/{project-name}/design/YYYY-MM-DD-<topic>.md`
+3. **Fallback [LAST RESORT]:** `.superpower-with-files/_current/design/YYYY-MM-DD-<topic>.md`
+
+**Project Name Detection (in order):**
+1. User prompt (e.g., "design auth for nautilus-trader")
+2. Current working directory basename
+3. Git remote name (last segment of origin URL)
+4. Package manifest (`package.json`, `Cargo.toml`, `pyproject.toml`)
+
+**Example Structure:**
+```
+.superpower-with-files/
+├── nautilus-trader/
+│   ├── design/
+│   │   ├── 2025-03-07-auth-design.md
+│   │   └── 2025-03-08-api-design.md
+│   ├── task_plan.md
+│   └── progress.md
+└── quant-bot/
+    └── design/
+        └── 2025-03-07-strategy-design.md
+```
+
+**Rules:**
+- Auto-create `.superpower-with-files/{project-name}/design/` if needed
+- One folder per project — never mix contexts
+- Ignore legacy `docs/plans/` path unless user requests it
+
+### Transition Rule
+After design is approved, you MUST invoke **`spf-write-plan`** to create the implementation plan.
 
 ### Automated Timestamping
 - Every time you modify a memory file, you MUST append a horizontal rule and a timestamp at the very bottom:

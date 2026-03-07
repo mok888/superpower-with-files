@@ -1,27 +1,17 @@
 #!/bin/bash
-# Initialize planning files for a new session in the branded SPF directory
-# Usage: ./init-session.sh [project-name] [target-dir]
+# Initialize planning files for a new session
+# Usage: ./init-session.sh [project-name]
 
 set -e
 
 PROJECT_NAME="${1:-project}"
-if [ -n "$2" ]; then
-    # If a target directory is provided, we assume it's a parent folder (like ~/projects)
-    # and create a subfolder for the project.
-    TARGET_DIR="$2/$PROJECT_NAME"
-else
-    # Default to the branded SPF folder in the current directory
-    TARGET_DIR=".superpower-with-files"
-fi
 DATE=$(date +%Y-%m-%d)
 
-echo "Initializing SPF planning files for: $PROJECT_NAME in $TARGET_DIR/"
-
-mkdir -p "$TARGET_DIR"
+echo "Initializing planning files for: $PROJECT_NAME"
 
 # Create task_plan.md if it doesn't exist
-if [ ! -f "$TARGET_DIR/task_plan.md" ]; then
-    cat > "$TARGET_DIR/task_plan.md" << 'EOF'
+if [ ! -f "task_plan.md" ]; then
+    cat > task_plan.md << 'EOF'
 # Task Plan: [Brief Description]
 
 ## Goal
@@ -65,20 +55,15 @@ Phase 1
 ## Errors Encountered
 | Error | Resolution |
 |-------|------------|
-
----
-*Last Updated: YYYY-MM-DD HH:MM UTC*
 EOF
-    # Update timestamp
-    sed -i "s/YYYY-MM-DD HH:MM/$(date -u +'%Y-%m-%d %H:%M')/" "$TARGET_DIR/task_plan.md"
-    echo "Created $TARGET_DIR/task_plan.md"
+    echo "Created task_plan.md"
 else
     echo "task_plan.md already exists, skipping"
 fi
 
 # Create findings.md if it doesn't exist
-if [ ! -f "$TARGET_DIR/findings.md" ]; then
-    cat > "$TARGET_DIR/findings.md" << 'EOF'
+if [ ! -f "findings.md" ]; then
+    cat > findings.md << 'EOF'
 # Findings & Decisions
 
 ## Requirements
@@ -97,19 +82,15 @@ if [ ! -f "$TARGET_DIR/findings.md" ]; then
 
 ## Resources
 -
-
----
-*Last Updated: YYYY-MM-DD HH:MM UTC*
 EOF
-    sed -i "s/YYYY-MM-DD HH:MM/$(date -u +'%Y-%m-%d %H:%M')/" "$TARGET_DIR/findings.md"
-    echo "Created $TARGET_DIR/findings.md"
+    echo "Created findings.md"
 else
     echo "findings.md already exists, skipping"
 fi
 
 # Create progress.md if it doesn't exist
-if [ ! -f "$TARGET_DIR/progress.md" ]; then
-    cat > "$TARGET_DIR/progress.md" << EOF
+if [ ! -f "progress.md" ]; then
+    cat > progress.md << EOF
 # Progress Log
 
 ## Session: $DATE
@@ -128,16 +109,12 @@ if [ ! -f "$TARGET_DIR/progress.md" ]; then
 ### Errors
 | Error | Resolution |
 |-------|------------|
-
----
-*Last Updated: $DATE $(date -u +'%H:%M') UTC*
 EOF
-    echo "Created $TARGET_DIR/progress.md"
+    echo "Created progress.md"
 else
     echo "progress.md already exists, skipping"
 fi
 
 echo ""
-echo "SPF Planning files initialized!"
-echo "Location: $TARGET_DIR/"
+echo "Planning files initialized!"
 echo "Files: task_plan.md, findings.md, progress.md"

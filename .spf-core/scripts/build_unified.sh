@@ -9,9 +9,10 @@ set -e
 
 # Setup paths
 SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
-REPO_ROOT=$(cd "$SCRIPT_DIR/.." && pwd)
-VENDOR_DIR="$REPO_ROOT/vendor"
-OVERLAYS_DIR="$REPO_ROOT/overlays"
+SPF_CORE=$(cd "$SCRIPT_DIR/.." && pwd)
+REPO_ROOT=$(cd "$SPF_CORE/.." && pwd)
+VENDOR_DIR="$SPF_CORE/vendor"
+OVERLAYS_DIR="$SPF_CORE/overlays"
 SKILLS_DIR="$REPO_ROOT/skills"
 HOOKS_DIR="$REPO_ROOT/hooks"
 TEMPLATES_DIR="$REPO_ROOT/templates"
@@ -92,10 +93,10 @@ cd "$SKILLS_DIR"
 # spf-write-plan (Rename from writing-plans)
 mv writing-plans spf-write-plan
 sed -i 's/^name: writing-plans/name: spf-write-plan/' spf-write-plan/SKILL.md
-if [ -d "$REPO_ROOT/src/skill-templates" ]; then
+if [ -d "$SPF_CORE/src/skill-templates" ]; then
     echo "  [TEMPLATES] Injecting stack templates into spf-write-plan..."
     mkdir -p spf-write-plan/templates
-    cp -r "$REPO_ROOT/src/skill-templates/"* spf-write-plan/templates/
+    cp -r "$SPF_CORE/src/skill-templates/"* spf-write-plan/templates/
 fi
 
 # spf-exec-plan (Rename from executing-plans)
@@ -106,6 +107,18 @@ sed -i 's/^name: executing-plans/name: spf-exec-plan/' spf-exec-plan/SKILL.md
 rm -f spf-plan spf-execute
 
 cd - > /dev/null
+
+# 5b. Copy SPF-Specific Skills (not from upstream)
+echo "5b. Adding SPF-specific skills..."
+if [ -d "$SPF_CORE/src/skills" ]; then
+    for skill_dir in "$SPF_CORE/src/skills"/*/; do
+        if [ -d "$skill_dir" ]; then
+            SKILL_NAME=$(basename "$skill_dir")
+            echo "  [SPF-SKILL] $SKILL_NAME"
+            cp -r "$skill_dir" "$SKILLS_DIR/"
+        fi
+    done
+fi
 
 # 6. Validate Merged Skills
 echo "6. Validating merged skills..."
