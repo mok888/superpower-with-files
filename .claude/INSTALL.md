@@ -1,42 +1,44 @@
-# OpenClaw Installation Guide
+# Claude Code Installation Guide
 
-Supercharge OpenClaw with unified persistent memory and TDD superpowers.
+Supercharge Claude Code with unified persistent memory and TDD superpowers.
 
 ---
 
 ## Option 1: Auto-Install by Agent
 
-**Just ask OpenClaw to install SPF:**
+**Just ask Claude Code to install SPF:**
 
 ```
 Install superpower-with-files from https://github.com/mok888/superpower-with-files
 ```
 
-**OpenClaw will:**
+**Claude will:**
 
 1. Clone SPF to `~/.spf` (or location you specify)
 2. Build unified skills via `./.spf-core/scripts/build_unified.sh`
-3. Symlink skills to `~/.openclaw/skills/`
-4. Copy AGENTS.md to current project
-5. Verify installation
+3. Symlink skills to `~/.claude/skills/`
+4. Install plugin to `~/.claude/plugins/`
+5. Copy CLAUDE.md to current project
+6. Verify installation
 
 **Expected Response:**
 
 ```
 🚀 Installing superpower-with-files...
 
-[1/5] Cloning to ~/.spf...
-[2/5] Building unified skills...
+[1/6] Cloning to ~/.spf...
+[2/6] Building unified skills...
   - 15 skills validated
-[3/5] Linking skills to ~/.openclaw/skills/...
+[3/6] Linking skills to ~/.claude/skills/...
   - spf-plan-manager ✓
   - spf-write-plan ✓
   - spf-exec-plan ✓
   - brainstorming ✓
   - test-driven-development ✓
   ... (10 more)
-[4/5] Copying AGENTS.md to project...
-[5/5] Verifying...
+[4/6] Installing plugin to ~/.claude/plugins/...
+[5/6] Copying CLAUDE.md to project...
+[6/6] Verifying...
 
 ✅ Installation complete!
 
@@ -65,29 +67,36 @@ cd ~/.spf
 ./.spf-core/scripts/build_unified.sh
 ```
 
-### Step 3: Link Skills to OpenClaw
+### Step 3: Link Skills to Claude Code
 
 ```bash
-mkdir -p ~/.openclaw/skills
+mkdir -p ~/.claude/skills
 
 for skill in ~/.spf/skills/*/; do
   skill_name=$(basename "$skill")
-  ln -s "$skill" ~/.openclaw/skills/"$skill_name"
+  ln -s "$skill" ~/.claude/skills/"$skill_name"
   echo "Linked: $skill_name"
 done
 ```
 
-### Step 4: Copy AGENTS.md to Project
+### Step 4: Install Plugin (Optional)
+
+```bash
+mkdir -p ~/.claude/plugins
+ln -s ~/.spf/.claude-plugin ~/.claude/plugins/spf
+```
+
+### Step 5: Copy CLAUDE.md to Project
 
 ```bash
 # For each project where you want SPF
-cp ~/.spf/.openclaw/AGENTS.md /path/to/your/project/.openclaw/AGENTS.md
+cp ~/.spf/.claude/CLAUDE.md /path/to/your/project/.claude/CLAUDE.md
 ```
 
-### Step 5: Verify
+### Step 6: Verify
 
 ```bash
-ls ~/.openclaw/skills/
+ls ~/.claude/skills/
 ```
 
 Should show 16+ skills including `spf-plan-manager`, `spf-write-plan`, `spf-exec-plan`.
@@ -108,8 +117,8 @@ git submodule add https://github.com/mok888/superpower-with-files.git .spf
 ./.spf/.spf-core/scripts/build_unified.sh
 
 # Link locally
-mkdir -p .openclaw/skills
-ln -s ../.spf/skills/* .openclaw/skills/
+mkdir -p .claude/skills
+ln -s ../.spf/skills/* .claude/skills/
 ```
 
 ---
@@ -118,10 +127,19 @@ ln -s ../.spf/skills/* .openclaw/skills/
 
 ### Test Installation
 
-In OpenClaw, try:
+In Claude Code, try:
 
 ```
 show me my plans
+```
+
+### Use Skills
+
+```
+@brainstorming design the authentication system
+@spf-write-plan create implementation plan
+@spf-exec-plan execute the plan
+@test-driven-development implement with tests
 ```
 
 ### Update SPF
@@ -140,12 +158,12 @@ git pull origin master
 
 ```bash
 # Check symlinks
-ls -la ~/.openclaw/skills/
+ls -la ~/.claude/skills/
 
 # Re-link
-rm ~/.openclaw/skills/*
+rm ~/.claude/skills/*
 for skill in ~/.spf/skills/*/; do
-  ln -s "$skill" ~/.openclaw/skills/
+  ln -s "$skill" ~/.claude/skills/
 done
 ```
 
@@ -160,19 +178,20 @@ git clone https://github.com/obra/superpowers.git ~/.spf/.spf-core/vendor/superp
 git clone https://github.com/OthmanAdi/planning-with-files.git ~/.spf/.spf-core/vendor/planning-with-files
 ```
 
-### OpenClaw not recognizing commands?
+### Claude not recognizing commands?
 
-Ensure `.openclaw/AGENTS.md` exists in your project root.
+Ensure `.claude/CLAUDE.md` exists in your project root.
 
 ---
 
 ## File Locations
 
-| Component     | Global Location              | Project Location                   |
-| ------------- | ---------------------------- | ---------------------------------- |
-| SPF Root      | `~/.spf/`                    | `your-project/.spf/`               |
-| Skills        | `~/.openclaw/skills/`        | `your-project/.openclaw/skills/`   |
-| Agent Docs    | `~/.spf/.openclaw/AGENTS.md` | `your-project/.openclaw/AGENTS.md` |
+| Component     | Global Location              | Project Location                 |
+| ------------- | ---------------------------- | -------------------------------- |
+| SPF Root      | `~/.spf/`                    | `your-project/.spf/`             |
+| Skills        | `~/.claude/skills/`          | `your-project/.claude/skills/`   |
+| Plugin        | `~/.claude/plugins/spf`      | N/A                              |
+| Agent Docs    | `~/.spf/.claude/CLAUDE.md`   | `your-project/.claude/CLAUDE.md` |
 | Plan Registry | `~/.spf/.superpower-with-files/_registry/` | `your-project/.superpower-with-files/_registry/` |
 
 ---
@@ -192,4 +211,3 @@ Ensure `.openclaw/AGENTS.md` exists in your project root.
 ---
 
 *Last Updated: 2025-03-07*
-

@@ -1,42 +1,44 @@
-# OpenClaw Installation Guide
+# Cursor Installation Guide
 
-Supercharge OpenClaw with unified persistent memory and TDD superpowers.
+Supercharge Cursor with unified persistent memory and TDD superpowers.
 
 ---
 
 ## Option 1: Auto-Install by Agent
 
-**Just ask OpenClaw to install SPF:**
+**Just ask Cursor to install SPF:**
 
 ```
 Install superpower-with-files from https://github.com/mok888/superpower-with-files
 ```
 
-**OpenClaw will:**
+**Cursor will:**
 
 1. Clone SPF to `~/.spf` (or location you specify)
 2. Build unified skills via `./.spf-core/scripts/build_unified.sh`
-3. Symlink skills to `~/.openclaw/skills/`
-4. Copy AGENTS.md to current project
-5. Verify installation
+3. Symlink skills to `~/.cursor/skills/`
+4. Copy rules to current project
+5. Configure hooks
+6. Verify installation
 
 **Expected Response:**
 
 ```
 🚀 Installing superpower-with-files...
 
-[1/5] Cloning to ~/.spf...
-[2/5] Building unified skills...
+[1/6] Cloning to ~/.spf...
+[2/6] Building unified skills...
   - 15 skills validated
-[3/5] Linking skills to ~/.openclaw/skills/...
+[3/6] Linking skills to ~/.cursor/skills/...
   - spf-plan-manager ✓
   - spf-write-plan ✓
   - spf-exec-plan ✓
   - brainstorming ✓
   - test-driven-development ✓
   ... (10 more)
-[4/5] Copying AGENTS.md to project...
-[5/5] Verifying...
+[4/6] Copying rules to project...
+[5/6] Configuring hooks...
+[6/6] Verifying...
 
 ✅ Installation complete!
 
@@ -65,29 +67,31 @@ cd ~/.spf
 ./.spf-core/scripts/build_unified.sh
 ```
 
-### Step 3: Link Skills to OpenClaw
+### Step 3: Link Skills to Cursor
 
 ```bash
-mkdir -p ~/.openclaw/skills
+mkdir -p ~/.cursor/skills
 
 for skill in ~/.spf/skills/*/; do
   skill_name=$(basename "$skill")
-  ln -s "$skill" ~/.openclaw/skills/"$skill_name"
+  ln -s "$skill" ~/.cursor/skills/"$skill_name"
   echo "Linked: $skill_name"
 done
 ```
 
-### Step 4: Copy AGENTS.md to Project
+### Step 4: Copy Rules to Project
 
 ```bash
 # For each project where you want SPF
-cp ~/.spf/.openclaw/AGENTS.md /path/to/your/project/.openclaw/AGENTS.md
+mkdir -p /path/to/your/project/.cursor
+cp ~/.spf/.cursor/rules /path/to/your/project/.cursor/rules
+cp ~/.spf/.cursor/hooks.json /path/to/your/project/.cursor/hooks.json
 ```
 
 ### Step 5: Verify
 
 ```bash
-ls ~/.openclaw/skills/
+ls ~/.cursor/skills/
 ```
 
 Should show 16+ skills including `spf-plan-manager`, `spf-write-plan`, `spf-exec-plan`.
@@ -108,8 +112,8 @@ git submodule add https://github.com/mok888/superpower-with-files.git .spf
 ./.spf/.spf-core/scripts/build_unified.sh
 
 # Link locally
-mkdir -p .openclaw/skills
-ln -s ../.spf/skills/* .openclaw/skills/
+mkdir -p .cursor/skills
+ln -s ../.spf/skills/* .cursor/skills/
 ```
 
 ---
@@ -118,7 +122,7 @@ ln -s ../.spf/skills/* .openclaw/skills/
 
 ### Test Installation
 
-In OpenClaw, try:
+In Cursor, try:
 
 ```
 show me my plans
@@ -140,12 +144,12 @@ git pull origin master
 
 ```bash
 # Check symlinks
-ls -la ~/.openclaw/skills/
+ls -la ~/.cursor/skills/
 
 # Re-link
-rm ~/.openclaw/skills/*
+rm ~/.cursor/skills/*
 for skill in ~/.spf/skills/*/; do
-  ln -s "$skill" ~/.openclaw/skills/
+  ln -s "$skill" ~/.cursor/skills/
 done
 ```
 
@@ -160,19 +164,20 @@ git clone https://github.com/obra/superpowers.git ~/.spf/.spf-core/vendor/superp
 git clone https://github.com/OthmanAdi/planning-with-files.git ~/.spf/.spf-core/vendor/planning-with-files
 ```
 
-### OpenClaw not recognizing commands?
+### Cursor not recognizing commands?
 
-Ensure `.openclaw/AGENTS.md` exists in your project root.
+Ensure `.cursor/rules` exists in your project.
 
 ---
 
 ## File Locations
 
-| Component     | Global Location              | Project Location                   |
-| ------------- | ---------------------------- | ---------------------------------- |
-| SPF Root      | `~/.spf/`                    | `your-project/.spf/`               |
-| Skills        | `~/.openclaw/skills/`        | `your-project/.openclaw/skills/`   |
-| Agent Docs    | `~/.spf/.openclaw/AGENTS.md` | `your-project/.openclaw/AGENTS.md` |
+| Component     | Global Location              | Project Location                 |
+| ------------- | ---------------------------- | -------------------------------- |
+| SPF Root      | `~/.spf/`                    | `your-project/.spf/`             |
+| Skills        | `~/.cursor/skills/`          | `your-project/.cursor/skills/`   |
+| Rules         | `~/.spf/.cursor/rules`       | `your-project/.cursor/rules`     |
+| Hooks         | `~/.spf/.cursor/hooks.json`  | `your-project/.cursor/hooks.json`|
 | Plan Registry | `~/.spf/.superpower-with-files/_registry/` | `your-project/.superpower-with-files/_registry/` |
 
 ---
@@ -192,4 +197,3 @@ Ensure `.openclaw/AGENTS.md` exists in your project root.
 ---
 
 *Last Updated: 2025-03-07*
-
