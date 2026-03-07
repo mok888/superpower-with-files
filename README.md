@@ -1,58 +1,90 @@
-# superpower-with-files 🚀
+# Superpower-with-Files 🚀
 
-The ultimate unified AI workflow. This repository merges the **persistent memory loops** of `planning-with-files` with the **high-speed TDD execution** of `superpowers`.
+**The ultimate unified AI workflow framework.**
+
+Merges **persistent memory** from `planning-with-files` with **disciplined TDD execution** from `superpowers`. Features per-project memory isolation, automated upstream sync, and overlay-based skill customization.
+
+---
 
 ## 📦 Features
-- **Persistent AI Memory**: AI agents never "lose their spot" thanks to Manus-style file logging.
-- **Dynamic TDD Loop**: Built-in instructions for writing tests before code, debugging, and subagent collaboration.
-- **Workspace Clutter Control**: All AI logs (plans, findings, progress) are automatically routed to a unified directory, keeping your project root clean.
-- **Prompt-Driven Paths**: Tell the agent where to save files directly in your prompt.
+
+| Feature                  | Description                                              |
+| ------------------------ | -------------------------------------------------------- |
+| **Persistent AI Memory** | Manus-style file logging - agents never "lose their spot" |
+| **Dynamic TDD Loop**     | RED-GREEN-REFACTOR cycle built-in                        |
+| **Per-Project Isolation** | Memory files organized by project, not mixed             |
+| **Upstream Sync**        | One-command sync from source repos + auto versioning     |
+| **Overlay System**       | Customize skills without forking                         |
+| **Workspace Clutter Control** | All AI logs routed to `.superpower-with-files/`    |
 
 ---
 
-## ⚡ Quick Start (Universal Installation)
+## ⚡ Quick Start
 
-SPF V2.2 is a **Universal Plugin**. You can install it once and use it everywhere.
-
-### 🌟 The Bootstrap
-Tell your agent (Claude, Aider, Roo Code):
+Tell your agent:
 > "Read and follow the installation instructions in: **`bootstrap.md`**"
-
----
-
-## 🛠 Platform Support Matrix
-
-| Platform | Recommended Setup | Shortcut |
-| :--- | :--- | :--- |
-| **Claude Code** | Native Plugin | `claude plugin add ...` |
-| **Cursor** | `.cursorrules` | [Config](./.cursor/hooks.json) |
-| **Aider / Cline** | Instruction Injection | [Guide](./bootstrap.md#2-aider--roo-code--cline) |
-| **OpenCode** | Skill Link | [Install](./.opencode/INSTALL.md) |
-   *(The agent will generate a concise high-level plan and detailed **Modular Task Guides** in `.superpower-with-files/guides/`.)*
-
-4. **Phase 2: Execution**:
-   Once approved, trigger the implementation using `/spf-execute` (or `/spf-exec-plan`):
-   > "Execute the plan."
-   *(The agent will now implement the code task-by-task, syncing its progress to **Git Pulse** automatically.)*
 
 ---
 
 ## 🛠 Platform Support
 
-| Platform | Setup Method | Documentation |
-| :--- | :--- | :--- |
-| **Claude Code** | Native Plugin | [plugin.json](./.claude-plugin/plugin.json) |
-| **Cursor** | Context Skills | [hooks.json](./.cursor/hooks.json) |
-| **OpenCode** | Config Symlink | [INSTALL.md](./.opencode/INSTALL.md) |
-| **OpenClaw** | Local/Global Skills | [INSTALL.md](./.openclaw/INSTALL.md) |
-| **Codex** | Skills Discovery | [INSTALL.md](./.codex/INSTALL.md) |
-| **Gemini CLI** | Skill Linking | [INSTALL.md](./.gemini-cli/INSTALL.md) |
+| Platform       | Setup Method     | Documentation                                        |
+| -------------- | ---------------- | ---------------------------------------------------- |
+| Claude Code    | Native Plugin    | [.claude-plugin/plugin.json](./.claude-plugin/plugin.json) |
+| Cursor         | Context Skills   | [.cursor/hooks.json](./.cursor/hooks.json)           |
+| OpenCode       | Config Symlink   | [.opencode/INSTALL.md](./.opencode/INSTALL.md)       |
+| OpenClaw       | Local/Global Skills | [.openclaw/INSTALL.md](./.openclaw/INSTALL.md)    |
+| Codex          | Skills Discovery | [.codex/INSTALL.md](./.codex/INSTALL.md)             |
+| Gemini CLI     | Skill Linking    | [.gemini-cli/INSTALL.md](./.gemini-cli/INSTALL.md)   |
+| Aider / Cline  | Instruction Injection | [bootstrap.md](./bootstrap.md)                  |
 
 ---
 
-## 📂 Architecture: Per-Project Memory Isolation
+## 📂 Repository Structure
 
-SPF automatically organizes memory files by project, keeping contexts isolated and your workspace clean.
+```
+.
+├── .spf-core/                    # Core architecture
+│   ├── vendor/                   # Raw upstream copies (DO NOT EDIT)
+│   │   ├── superpowers/          # obra/superpowers
+│   │   └── planning-with-files/  # OthmanAdi/planning-with-files
+│   ├── overlays/                 # Custom modifications
+│   │   └── superpowers/          # spf-*.md overlay files
+│   ├── scripts/                  # Build + sync automation
+│   │   ├── sync-upstream.sh      # Fetch latest upstreams
+│   │   └── build_unified.sh      # Merge vendor + overlays
+│   └── src/                      # Source assets
+│       ├── hooks/                # Session hooks
+│       ├── skill-templates/      # Stack templates
+│       └── templates/            # Memory file templates
+│
+├── skills/                       # Unified skills (auto-generated)
+│   ├── brainstorming/            # Design before implementation
+│   ├── planning-with-files/      # Persistent memory system
+│   ├── spf-write-plan/           # Plan creation (SPF branded)
+│   ├── spf-exec-plan/            # Plan execution (SPF branded)
+│   ├── test-driven-development/  # RED-GREEN-REFACTOR
+│   ├── systematic-debugging/     # Root cause tracing
+│   ├── using-git-worktrees/      # Feature isolation
+│   └── ...                       # 15 skills total
+│
+├── hooks/                        # Session hooks
+│   ├── check-complete.sh         # Completion verification
+│   └── init-session.sh           # Session initialization
+│
+├── templates/                    # Memory file templates
+│   ├── task_plan.md
+│   ├── findings.md
+│   └── progress.md
+│
+├── VERSION                       # Current SPF version
+├── CHANGELOG.md                  # Auto-generated from upstreams
+└── AGENTS.md                     # AI knowledge base
+```
+
+---
+
+## 🧠 Per-Project Memory Isolation
 
 ### Path Resolution
 
@@ -70,11 +102,11 @@ Priority:
 ```
 .superpower-with-files/
 ├── nautilus-trader/              # Project A
-│   ├── task_plan.md
-│   ├── findings.md
-│   ├── progress.md
+│   ├── task_plan.md              # High-level phases
+│   ├── findings.md               # Research, decisions
+│   ├── progress.md               # Session log
 │   └── design/
-│       └── 2025-03-07-auth.md
+│       └── 2025-03-07-auth.md    # Brainstorming outputs
 │
 ├── quant-bot/                    # Project B
 │   ├── task_plan.md
@@ -102,11 +134,39 @@ Priority:
 
 ---
 
-## ❤️ Appreciation
+## 🎯 Skills Overview
 
-Special thanks to the original creators whose work made this unified workflow possible:
-- **[superpowers](https://github.com/obra/superpowers)** by @obra - For the professional-grade, high-speed TDD execution framework.
-- **[planning-with-files](https://github.com/OthmanAdi/planning-with-files)** by @OthmanAdi - For the ingenious Manus-style persistent memory format.
+### Core Workflow Skills
+
+| Skill                        | Purpose                              | Trigger                              |
+| ---------------------------- | ------------------------------------ | ------------------------------------ |
+| `brainstorming`              | Design before implementation         | "How should I build X?"              |
+| `spf-write-plan`             | Create implementation plan           | After design approved                |
+| `spf-exec-plan`              | Execute plan step-by-step            | "Execute the plan"                   |
+| `test-driven-development`    | RED-GREEN-REFACTOR cycle             | Before writing implementation        |
+| `systematic-debugging`       | Root cause tracing                   | "Fix this bug"                       |
+
+### Supporting Skills
+
+| Skill                              | Purpose                         |
+| ---------------------------------- | ------------------------------- |
+| `using-git-worktrees`              | Feature isolation (REQUIRED)    |
+| `using-superpowers`                | How to find/use skills          |
+| `writing-skills`                   | TDD for documentation           |
+| `requesting-code-review`           | Before merge                    |
+| `receiving-code-review`            | Handle feedback                 |
+| `finishing-a-development-branch`   | Merge/cleanup                   |
+| `dispatching-parallel-agents`      | Background execution            |
+| `subagent-driven-development`      | Delegate implementation         |
+| `verification-before-completion`   | Evidence required               |
+
+### Stack Templates
+
+Located in `skills/spf-write-plan/templates/`:
+- `python-cli.md` - Python CLI project
+- `rust-axum.md` - Rust web service
+- `react-component.md` - React component
+- And more...
 
 ---
 
@@ -116,81 +176,96 @@ SPF tracks two upstream repositories:
 - **superpowers** (obra/superpowers) - TDD execution framework
 - **planning-with-files** (OthmanAdi/planning-with-files) - Persistent memory system
 
-### Architecture
+### Step 1: Fetch Latest Upstreams
 
-```
-.spf-core/
-├── vendor/                    # Raw upstream copies
-│   ├── superpowers/
-│   └── planning-with-files/
-├── overlays/                  # Your custom modifications
-│   └── superpowers/
-│       ├── mod-brainstorming.md
-│       └── ...
-├── scripts/
-│   ├── sync-upstream.sh       # Fetch latest upstreams
-│   └── build_unified.sh       # Merge vendor + overlays → skills/
-└── src/
-    ├── hooks/                 # Custom hooks
-    └── skill-templates/       # Stack templates
-```
-
-### Step-by-Step: Sync Upstreams
-
-**Step 1: Fetch Latest Upstreams**
 ```bash
-cd /path/to/superpower-with-files
 ./.spf-core/scripts/sync-upstream.sh
 ```
-This:
-1. Clones latest from `obra/superpowers` and `OthmanAdi/planning-with-files`
-2. Updates `.spf-core/vendor/` with fresh copies
-3. **Bumps SPF version** (patch +1, stored in `VERSION` file)
-4. **Updates CHANGELOG.md** with upstream release notes
-5. Runs `build_unified.sh` to re-merge with your overlays
 
-**Step 2: Review Changes**
+This:
+1. Clones latest from both upstreams
+2. Updates `.spf-core/vendor/` with fresh copies
+3. **Bumps SPF version** (patch +1 in VERSION file)
+4. **Updates CHANGELOG.md** with upstream release notes
+5. Runs `build_unified.sh` to re-merge with overlays
+
+### Step 2: Review Changes
+
 ```bash
 git diff
 ```
-Check what changed in the unified skills and version files.
 
-**Step 3: Commit Updates**
+### Step 3: Commit Updates
+
 ```bash
 git add .
 git commit -m "v0.1.1: sync upstream (superpowers 1.2.3, planning-with-files 2.0.1)"
 git push
 ```
 
-### Version Management
+### Dry Run
 
-- **VERSION file** - Single source of truth for SPF version
-- **Auto-bump** - Each sync increments patch version (e.g., 0.1.0 → 0.1.1)
-- **CHANGELOG.md** - Automatically updated with:
-  - SPF version and date
-  - Upstream version references
-  - Upstream release notes
-
-### Dry Run (Preview Without Changes)
 ```bash
 ./.spf-core/scripts/sync-upstream.sh --dry-run
 ```
 
-### How build_unified.sh Works
+### Version Management
 
-1. **Clean** - Removes existing `skills/`, `hooks/`, `templates/`
-2. **Copy Planning-with-Files** - Base memory system
-3. **Copy Superpowers** - TDD execution skills
-4. **Apply Overlays** - Injects your modifications from `overlays/superpowers/*.md`
-5. **Consolidate** - Renames to SPF brand (`spf-write-plan`, `spf-exec-plan`)
+| Component      | Behavior                                 |
+| -------------- | ---------------------------------------- |
+| `VERSION`      | Single source of truth, auto-bumped      |
+| `CHANGELOG.md` | Auto-updated with upstream release notes |
+
+---
+
+## 🔧 Build System
+
+### build_unified.sh
+
+Merges vendor + overlays into unified skills:
+
+```
+1. Clean skills/, hooks/, templates/
+2. Copy planning-with-files (memory system)
+3. Copy superpowers (TDD execution)
+4. Apply overlays (inject customizations)
+5. Rename to SPF brand (spf-write-plan, spf-exec-plan)
+6. Validate (YAML frontmatter checks)
+```
+
+### Validation Checks
+
+- YAML frontmatter exists (`---...---`)
+- `name:` field present
+- `description:` field present
+- Frontmatter properly closed
+
+---
+
+## 📝 Overlay System
+
+Customize upstream skills without modifying vendor files.
+
+### Overlay Format
+
+```markdown
+<!-- target: skills/target-skill/SKILL.md -->
+<!-- action: append | overwrite -->
+
+## Custom Section
+
+Your additional rules here...
+```
+
+**Actions:**
+- `append` - Add content to END of target file
+- `overwrite` - Replace target file entirely
 
 ### Creating New Overlays
 
-To customize an upstream skill without modifying vendor files:
-
 ```bash
-# 1. Create overlay file
-cat > .spf-core/overlays/superpowers/mod-my-skill.md << 'EOF'
+# 1. Create overlay file (use spf-* naming)
+cat > .spf-core/overlays/superpowers/spf-my-skill.md << 'EOF'
 <!-- target: skills/my-skill/SKILL.md -->
 <!-- action: append -->
 
@@ -203,15 +278,58 @@ EOF
 ./.spf-core/scripts/build_unified.sh
 
 # 3. Commit
-git add . && git commit -m "feat: add custom overlay for my-skill"
+git add . && git commit -m "overlay: add spf-my-skill"
 ```
 
-**Overlay Actions:**
-- `append` - Add content to end of target file
-- `overwrite` - Replace target file entirely
+### Current Overlays
+
+| File                         | Target Skill             |
+| ---------------------------- | ------------------------ |
+| `spf-brainstorming.md`       | brainstorming            |
+| `spf-planning-with-files.md` | planning-with-files      |
+| `spf-receiving-review.md`    | receiving-code-review    |
+| `spf-requesting-review.md`   | requesting-code-review   |
+| `spf-using-superpowers.md`   | using-superpowers        |
+
+---
+
+## 📋 Hooks
+
+| Hook               | Purpose                         |
+| ------------------ | ------------------------------- |
+| `check-complete.sh` | Verify task completion          |
+| `init-session.sh`  | Initialize new session          |
+
+---
+
+## 📚 Documentation
+
+| File          | Purpose                         |
+| ------------- | ------------------------------- |
+| `AGENTS.md`   | AI knowledge base (this repo)   |
+| `bootstrap.md`| Installation instructions       |
+| `CHANGELOG.md`| Version history                 |
+| `VERSION`     | Current version number          |
+
+---
+
+## ⚠️ Anti-Patterns
+
+- **NEVER** modify `.spf-core/vendor/` directly → use overlays
+- **NEVER** skip `build_unified.sh` after overlay changes
+- **NEVER** use `mod-*.md` naming → use `spf-*.md`
+- **NEVER** commit to `skills/` without validation passing
+- **NEVER** mix project contexts in same memory folder
+
+---
+
+## ❤️ Appreciation
+
+- **[superpowers](https://github.com/obra/superpowers)** by @obra - TDD execution framework
+- **[planning-with-files](https://github.com/OthmanAdi/planning-with-files)** by @OthmanAdi - Persistent memory system
 
 ---
 
 ## License
-MIT
 
+MIT
