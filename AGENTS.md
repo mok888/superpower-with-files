@@ -95,6 +95,7 @@ git add . && git commit -m "vX.Y.Z: sync upstream"
 
 ## COMMANDS
 
+### Build & Sync
 ```bash
 # Sync upstreams + build
 ./.spf-core/scripts/sync-upstream.sh
@@ -105,6 +106,21 @@ git add . && git commit -m "vX.Y.Z: sync upstream"
 # Dry run sync
 ./.spf-core/scripts/sync-upstream.sh --dry-run
 ```
+
+### Plan Management
+```
+/spf list              - List all plans with status
+/spf status <project>  - Detailed plan status
+/spf resume <project>  - Resume execution
+/spf block <project>   - Mark as blocked
+/spf unblock <project> - Remove blocked status
+/spf complete <project> - Mark complete
+/spf archive <project> - Move to archive
+```
+
+**Registry:** `.superpower-with-files/_registry/PLANS.md`
+
+**Status values:** `pending` | `in_progress` | `blocked` | `complete`
 
 ## NOTES
 

@@ -1,0 +1,54 @@
+# Cursor Rules
+
+This project uses **superpower-with-files (SPF)** for AI-assisted development.
+
+## Plan Management
+
+Use these commands to track and manage development plans:
+
+| Command                  | Action                          |
+| ------------------------ | ------------------------------- |
+| `/spf list`              | List all plans with status      |
+| `/spf status <project>`  | Detailed plan status            |
+| `/spf resume <project>`  | Resume execution                |
+| `/spf block <project>`   | Mark as blocked                 |
+| `/spf unblock <project>` | Remove blocked status           |
+| `/spf complete <project>`| Mark complete                   |
+
+## Quick Examples
+
+**List plans:**
+```
+User: "show me my plans"
+Agent: Lists all plans from .superpower-with-files/_registry/PLANS.md
+```
+
+**Check status:**
+```
+User: "status of nautilus-trader"
+Agent: Shows phase progress, tasks completed, next steps
+```
+
+**Resume work:**
+```
+User: "resume nautilus-trader"
+Agent: Loads context and invokes spf-exec-plan
+```
+
+## File Structure
+
+```
+.superpower-with-files/
+├── _registry/PLANS.md       # Plan index
+├── {project}/
+│   ├── task_plan.md         # Phases
+│   ├── active_tdd_plan.md   # Tasks
+│   └── progress.md          # Log
+```
+
+## Key Skills
+
+- `spf-plan-manager` - Plan tracking
+- `spf-write-plan` - Create plans
+- `spf-exec-plan` - Execute plans
+- `test-driven-development` - TDD workflow
