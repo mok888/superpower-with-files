@@ -189,3 +189,215 @@ If `_registry/PLANS.md` doesn't exist:
 - **Not creating _registry/ directory** - Create on first plan
 - **Archiving active plans** - Complete first, then archive
 - **Losing context on resume** - Always read task_plan.md + progress.md first
+
+## Usage Examples
+
+### Example 1: List All Plans
+
+**User:** "show me my plans"
+
+**Agent:**
+```
+🚀 **SUPERPOWER ACTIVE:** spf-plan-manager
+
+Reading plan registry...
+
+=== SPF Plans ===
+
+ACTIVE:
+  nautilus-trader    in_progress   Phase 3/5   12/25 tasks   2h ago
+  quant-bot          complete      Phase 5/5   30/30 tasks   1d ago
+
+BLOCKED:
+  legacy-api         blocked       Phase 2/4   8/20 tasks    5d ago
+    └─ Reason: Waiting for API keys from DevOps
+
+Commands: /spf status <project> | /spf resume <project>
+```
+
+---
+
+### Example 2: Check Plan Status
+
+**User:** "what's the status of nautilus-trader plan"
+
+**Agent:**
+```
+🚀 **SUPERPOWER ACTIVE:** spf-plan-manager
+
+=== Plan: nautilus-trader ===
+
+Goal: Implement JWT authentication for REST API
+Status: in_progress
+Phase: 3/5 (Implementation)
+Tasks: 12/25 complete
+
+Phases:
+  ✅ 1. Requirements & Discovery (complete)
+  ✅ 2. Planning & Structure (complete)
+  🔄 3. Implementation (current)
+  ⬜ 4. Testing & Verification (pending)
+  ⬜ 5. Delivery (pending)
+
+Recent Activity:
+  2025-03-07 14:30 - Completed: Add token validation middleware
+  2025-03-07 14:00 - Completed: Implement refresh token flow
+  2025-03-07 13:30 - Started: Rate limiting implementation
+
+Next Tasks (from active_tdd_plan.md):
+  1. Add rate limiting to auth endpoints (est. 15 min)
+  2. Write unit tests for token service (est. 30 min)
+  3. Integration test for full auth flow (est. 20 min)
+
+Resume: /spf resume nautilus-trader
+```
+
+---
+
+### Example 3: Resume a Plan
+
+**User:** "resume nautilus-trader"
+
+**Agent:**
+```
+🚀 **SUPERPOWER ACTIVE:** spf-plan-manager
+
+🚀 Resuming plan: nautilus-trader
+
+Loading context:
+  - Reading .superpower-with-files/nautilus-trader/task_plan.md
+  - Reading .superpower-with-files/nautilus-trader/active_tdd_plan.md
+  - Reading .superpower-with-files/nautilus-trader/progress.md
+
+Current state:
+  - Phase: 3/5 (Implementation)
+  - Tasks: 12/25 complete
+  - Next: Add rate limiting to auth endpoints
+
+Invoking spf-exec-plan...
+```
+
+*(Then invokes spf-exec-plan skill to continue execution)*
+
+---
+
+### Example 4: Block a Plan
+
+**User:** "block legacy-api, waiting for API keys"
+
+**Agent:**
+```
+🚀 **SUPERPOWER ACTIVE:** spf-plan-manager
+
+Updating PLANS.md:
+  - Moving legacy-api from ACTIVE to BLOCKED
+  - Adding reason: "Waiting for API keys"
+  - Timestamp: 2025-03-07 15:00
+
+✅ Plan legacy-api marked as blocked.
+
+When API keys are available: /spf unblock legacy-api
+```
+
+---
+
+### Example 5: Unblock a Plan
+
+**User:** "got the API keys, unblock legacy-api"
+
+**Agent:**
+```
+🚀 **SUPERPOWER ACTIVE:** spf-plan-manager
+
+Updating PLANS.md:
+  - Moving legacy-api from BLOCKED to ACTIVE
+  - Removing blocked reason
+  - Timestamp: 2025-03-07 16:30
+
+✅ Plan legacy-api unblocked.
+
+Resume: /spf resume legacy-api
+```
+
+---
+
+### Example 6: Complete a Plan
+
+**User:** "quant-bot is done"
+
+**Agent:**
+```
+🚀 **SUPERPOWER ACTIVE:** spf-plan-manager
+
+Updating PLANS.md:
+  - Moving quant-bot to COMPLETED section
+  - Completion time: 2025-03-07 17:00
+  - Duration: 2 days 4 hours
+
+✅ Plan quant-bot marked complete.
+
+Archive (optional): /spf archive quant-bot
+```
+
+---
+
+### Example 7: Archive Old Plans
+
+**User:** "archive old-project"
+
+**Agent:**
+```
+🚀 **SUPERPOWER ACTIVE:** spf-plan-manager
+
+Updating PLANS.md:
+  - Moving old-project to ARCHIVED section
+  - Archive date: 2025-03-07
+
+✅ Plan old-project archived.
+
+Archived plans are kept for reference and can be found in the ARCHIVED section of PLANS.md.
+```
+
+---
+
+### Example 8: First-Time Registry Setup
+
+**User:** "/spf list" (when no registry exists)
+
+**Agent:**
+```
+🚀 **SUPERPOWER ACTIVE:** spf-plan-manager
+
+No plan registry found. Creating...
+
+1. Creating .superpower-with-files/_registry/
+2. Copying templates/PLANS.md
+3. Scanning for existing plans...
+
+Found 2 existing projects:
+  - nautilus-trader (has task_plan.md)
+  - quant-bot (has task_plan.md)
+
+Adding entries to PLANS.md...
+
+=== SPF Plans ===
+
+ACTIVE:
+  nautilus-trader    in_progress   Phase 3/5   12/25 tasks   2h ago
+  quant-bot          complete      Phase 5/5   30/30 tasks   1d ago
+
+Registry created at: .superpower-with-files/_registry/PLANS.md
+```
+
+---
+
+## Agent Behavior Checklist
+
+When user invokes any `/spf` command:
+
+- [ ] Announce: `🚀 **SUPERPOWER ACTIVE:** spf-plan-manager`
+- [ ] Read `.superpower-with-files/_registry/PLANS.md`
+- [ ] If registry doesn't exist, create it first
+- [ ] Execute the command
+- [ ] Update PLANS.md if status changed
+- [ ] Show next available command
