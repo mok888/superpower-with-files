@@ -216,18 +216,3 @@ Ready to implement auth feature
 
 **Pairs with:**
 - **finishing-a-development-branch** - REQUIRED for cleanup after work complete
-
-## Superplanner Memory Integration (Unified Extension)
-**CRITICAL THEMATIC RULE:** You are working inside the `superpower-with-files` unified framework.
-
-### Skill Announcement
-- Every time you start using this skill, you MUST first announce: 
-  `🚀 **SUPERPOWER ACTIVE:** using-git-worktrees`
-
-### Workflow Standardization
-1. **Context Notice:** Git worktrees are powerful but **optional** in the SPF workflow. If the user prefers to work in the main project root, do not force worktree creation unless explicitly requested or if isolation is critically necessary for safety.
-
-### Automated Timestamping
-- Every time you modify a memory file, you MUST append a horizontal rule and a timestamp at the very bottom:
-  `---`
-  `*Last Updated: YYYY-MM-DD HH:MM UTC*`
