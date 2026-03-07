@@ -50,18 +50,55 @@ Tell your agent (Claude, Aider, Roo Code):
 
 ---
 
-## 📂 Architecture: The Unified Memory Path
+## 📂 Architecture: Per-Project Memory Isolation
 
-By default, everything is saved to `<project-root>/.superpower-with-files/`. You can customize this path by simply **instructing the agent in your prompt**.
+SPF automatically organizes memory files by project, keeping contexts isolated and your workspace clean.
+
+### Path Resolution
+
+```
+Priority:
+1. User-specified path (explicit in prompt)
+2. .superpower-with-files/{project-name}/ (auto-detected)
+3. .superpower-with-files/_current/ (fallback)
+```
+
+**Project name detection:** User prompt → CWD basename → Git remote → Package manifest
+
+### Directory Structure
+
+```
+.superpower-with-files/
+├── nautilus-trader/              # Project A
+│   ├── task_plan.md
+│   ├── findings.md
+│   ├── progress.md
+│   └── design/
+│       └── 2025-03-07-auth.md
+│
+├── quant-bot/                    # Project B
+│   ├── task_plan.md
+│   ├── findings.md
+│   └── progress.md
+│
+└── _templates/                   # Starting templates
+    ├── task_plan.md
+    ├── findings.md
+    └── progress.md
+```
+
+### Memory Files
+
+| File                   | Purpose                           |
+| ---------------------- | --------------------------------- |
+| `task_plan.md`         | High-level phases and goal tracking |
+| `active_tdd_plan.md`   | Granular, minute-by-minute steps  |
+| `progress.md`          | Session log, test results, errors |
+| `findings.md`          | Research, decisions, constraints  |
+| `design/*.md`          | Brainstorming outputs             |
 
 > [!IMPORTANT]
-> **Strict Phase Separation**: The workflow is split into two distinct modes: **Planning** (thinking/designing) and **Execution** (doing/writing). The agent will not touch code until you explicitly give the "Execute" command.
-
-### Standard Memory Files:
-- `task_plan.md`: High-level phase checklist and goal tracking.
-- `active_tdd_plan.md`: Granular, minute-by-minute execution steps.
-- `progress.md`: Complete session log, test results, and error tracking.
-- `findings.md`: Research, architectural decisions, and key constraints.
+> **Strict Phase Separation**: Planning (thinking/designing) and Execution (doing/writing) are separate. Agent won't touch code until you give "Execute" command.
 
 ---
 
