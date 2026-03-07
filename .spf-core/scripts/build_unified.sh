@@ -107,6 +107,53 @@ rm -f spf-plan spf-execute
 
 cd - > /dev/null
 
+# 6. Validate Merged Skills
+echo "6. Validating merged skills..."
+VALIDATION_FAILED=0
+SKILL_COUNT=0
+
+for skill_dir in "$SKILLS_DIR"/*/; do
+    SKILL_FILE="$skill_dir/SKILL.md"
+    SKILL_NAME=$(basename "$skill_dir")
+    
+    if [ -f "$SKILL_FILE" ]; then
+        SKILL_COUNT=$((SKILL_COUNT + 1))
+        
+        # Check YAML frontmatter exists
+        if ! head -1 "$SKILL_FILE" | grep -q "^---"; then
+            echo "  [FAIL] $SKILL_NAME: Missing YAML frontmatter (---)"
+            VALIDATION_FAILED=1
+        fi
+        
+        # Check name field
+        if ! grep -q "^name:" "$SKILL_FILE"; then
+            echo "  [FAIL] $SKILL_NAME: Missing 'name:' field"
+            VALIDATION_FAILED=1
+        fi
+        
+        # Check description field
+        if ! grep -q "^description:" "$SKILL_FILE"; then
+            echo "  [FAIL] $SKILL_NAME: Missing 'description:' field"
+            VALIDATION_FAILED=1
+        fi
+        
+        # Check frontmatter closing (second --- within first 30 lines for complex YAML)
+        if ! head -30 "$SKILL_FILE" | grep -c "^---" | grep -q "2"; then
+            echo "  [FAIL] $SKILL_NAME: Unclosed YAML frontmatter"
+            VALIDATION_FAILED=1
+        fi
+    fi
+done
+
+if [ $VALIDATION_FAILED -eq 1 ]; then
+    echo ""
+    echo "ERROR: Validation failed. Review errors above."
+    echo "       Fix overlay files or check vendor integrity."
+    exit 1
+fi
+
+echo "  [OK] $SKILL_COUNT skills validated"
+
 echo "==============================================="
 echo " Build Complete: Core and Overlays merged into /skills"
 echo "==============================================="

@@ -71,6 +71,110 @@ Special thanks to the original creators whose work made this unified workflow po
 - **[superpowers](https://github.com/obra/superpowers)** by @obra - For the professional-grade, high-speed TDD execution framework.
 - **[planning-with-files](https://github.com/OthmanAdi/planning-with-files)** by @OthmanAdi - For the ingenious Manus-style persistent memory format.
 
+---
+
+## 🔄 Upstream Sync Workflow
+
+SPF tracks two upstream repositories:
+- **superpowers** (obra/superpowers) - TDD execution framework
+- **planning-with-files** (OthmanAdi/planning-with-files) - Persistent memory system
+
+### Architecture
+
+```
+.spf-core/
+├── vendor/                    # Raw upstream copies
+│   ├── superpowers/
+│   └── planning-with-files/
+├── overlays/                  # Your custom modifications
+│   └── superpowers/
+│       ├── mod-brainstorming.md
+│       └── ...
+├── scripts/
+│   ├── sync-upstream.sh       # Fetch latest upstreams
+│   └── build_unified.sh       # Merge vendor + overlays → skills/
+└── src/
+    ├── hooks/                 # Custom hooks
+    └── skill-templates/       # Stack templates
+```
+
+### Step-by-Step: Sync Upstreams
+
+**Step 1: Fetch Latest Upstreams**
+```bash
+cd /path/to/superpower-with-files
+./.spf-core/scripts/sync-upstream.sh
+```
+This:
+1. Clones latest from `obra/superpowers` and `OthmanAdi/planning-with-files`
+2. Updates `.spf-core/vendor/` with fresh copies
+3. **Bumps SPF version** (patch +1, stored in `VERSION` file)
+4. **Updates CHANGELOG.md** with upstream release notes
+5. Runs `build_unified.sh` to re-merge with your overlays
+
+**Step 2: Review Changes**
+```bash
+git diff
+```
+Check what changed in the unified skills and version files.
+
+**Step 3: Commit Updates**
+```bash
+git add .
+git commit -m "v0.1.1: sync upstream (superpowers 1.2.3, planning-with-files 2.0.1)"
+git push
+```
+
+### Version Management
+
+- **VERSION file** - Single source of truth for SPF version
+- **Auto-bump** - Each sync increments patch version (e.g., 0.1.0 → 0.1.1)
+- **CHANGELOG.md** - Automatically updated with:
+  - SPF version and date
+  - Upstream version references
+  - Upstream release notes
+
+### Dry Run (Preview Without Changes)
+```bash
+./.spf-core/scripts/sync-upstream.sh --dry-run
+```
+
+### How build_unified.sh Works
+
+1. **Clean** - Removes existing `skills/`, `hooks/`, `templates/`
+2. **Copy Planning-with-Files** - Base memory system
+3. **Copy Superpowers** - TDD execution skills
+4. **Apply Overlays** - Injects your modifications from `overlays/superpowers/*.md`
+5. **Consolidate** - Renames to SPF brand (`spf-write-plan`, `spf-exec-plan`)
+
+### Creating New Overlays
+
+To customize an upstream skill without modifying vendor files:
+
+```bash
+# 1. Create overlay file
+cat > .spf-core/overlays/superpowers/mod-my-skill.md << 'EOF'
+<!-- target: skills/my-skill/SKILL.md -->
+<!-- action: append -->
+
+## Custom Section
+
+Your additional rules here...
+EOF
+
+# 2. Rebuild
+./.spf-core/scripts/build_unified.sh
+
+# 3. Commit
+git add . && git commit -m "feat: add custom overlay for my-skill"
+```
+
+**Overlay Actions:**
+- `append` - Add content to end of target file
+- `overwrite` - Replace target file entirely
+
+---
+
 ## License
 MIT
 
