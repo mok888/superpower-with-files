@@ -40,6 +40,86 @@ Tell your agent:
 
 ---
 
+## 📥 Installation
+
+### Option 1: Claude Code Plugin (Recommended)
+
+1. **Clone SPF to a central location:**
+   ```bash
+   git clone https://github.com/mok888/superpower-with-files ~/.spf
+   ```
+
+2. **Install the plugin:**
+   ```bash
+   mkdir -p ~/.claude/plugins
+   ln -s ~/.spf/.claude-plugin ~/.claude/plugins/spf
+   ```
+
+3. **Link skills:**
+   ```bash
+   mkdir -p ~/.claude/skills
+   for skill in ~/.spf/skills/*/; do
+     ln -s "$skill" ~/.claude/skills/
+   done
+   ```
+
+4. **Restart Claude Code**
+
+### Option 2: Manual Installation (Any Platform)
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/mok888/superpower-with-files.git
+   cd superpower-with-files
+   ```
+
+2. **Build unified skills:**
+   ```bash
+   ./.spf-core/scripts/build_unified.sh
+   ```
+
+3. **Link to your platform's skills directory:**
+
+   | Platform     | Skills Location                  | Command                                           |
+   | ------------ | -------------------------------- | ------------------------------------------------- |
+   | Claude Code  | `~/.claude/skills/`              | `ln -s $(pwd)/skills/* ~/.claude/skills/`         |
+   | Cursor       | `~/.cursor/skills/`              | `ln -s $(pwd)/skills/* ~/.cursor/skills/`         |
+   | OpenCode     | `~/.config/opencode/skills/`     | `ln -s $(pwd)/skills/* ~/.config/opencode/skills/`|
+   | OpenClaw     | `~/.openclaw/skills/`            | `ln -s $(pwd)/skills/* ~/.openclaw/skills/`       |
+
+4. **Copy agent instructions to your project:**
+   ```bash
+   # For Claude Code
+   cp -r .claude /path/to/your/project/
+   
+   # For Codex
+   cp -r .codex /path/to/your/project/
+   
+   # For Cursor
+   cp -r .cursor /path/to/your/project/
+   ```
+
+### Option 3: Project-Local (No Global Install)
+
+1. **Add as submodule:**
+   ```bash
+   cd your-project
+   git submodule add https://github.com/mok888/superpower-with-files.git .spf
+   ```
+
+2. **Build skills:**
+   ```bash
+   ./.spf/.spf-core/scripts/build_unified.sh
+   ```
+
+3. **Link locally:**
+   ```bash
+   mkdir -p .claude/skills
+   ln -s ../.spf/skills/* .claude/skills/
+   ```
+
+---
+
 ## 📂 Repository Structure
 
 ```
